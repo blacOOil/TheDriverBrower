@@ -1,0 +1,554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    display: block;
+    position: sticky;
+    top: 0;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    background-color: white;
+
+    font-size: 150%;
+    font-family: 'Optima', sans-serif;
+
+    padding: 1% 0;
+}
+
+.header_Left {
+    grid-column: 1;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-left: 10%;
+}
+
+#header_Name {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.header_Center {
+    grid-column: 2;
+    text-align: center;
+    padding: 1%;
+}
+  
+.header_Right {
+    grid-column: 3;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-right: 10%;
+}
+
+.button {
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+
+    transition: transform 0.4s ease-in-out;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+}
+
+.header_button_img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Game */
+
+#section_Game {
+    margin-bottom: 7%;
+}
+
+#section_Comment {
+    margin-bottom: 10%;
+}
+
+#section_Contact {
+    margin-bottom: 10%;
+}
+
+fieldset {
+    display: block;
+    margin: 3% 3% 3% 3%;
+    padding: 3% 3% 3% 3%;
+    
+    border-radius: 10px;
+    border: 5px dashed rgb(255, 255, 255);
+
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Optima', sans-serif;
+    color: white;
+
+    transition: transform 0.4s ease-in-out;
+}
+
+#legend_Game {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 3% 0% 3%;
+}
+
+.Game {
+    grid-column: 1;
+    text-align: center;
+
+    line-height: 1.5;
+
+    font-size: 150%;
+}
+
+#fieldset_Like_Leader {
+    margin: 3% 0% 3% 0%;
+}
+
+#legend_Like_Leader {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: center;
+    padding: 0% 3% 0% 3%;
+    
+}
+
+#div_Like_Leader {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Comment */
+
+#legend_Comment {
+    font-size: 200%;
+    font-weight: bold;
+    padding: 0% 3% 0% 3%;
+    
+}
+
+#div_Skill_project {
+    font-size: 150%;
+
+    display: grid;
+    grid-template-columns: auto auto;
+
+    line-height: 1.5;
+}
+
+/* Contact */
+
+#legend_Contact {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 3% 0% 3%;
+}
+
+#div_Skill_Contact {
+    text-align: left;
+}
+
+.button_Contact {
+    width: 4%;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+
+    margin-left: 3%;
+    margin-right: 3%;
+
+    transition: transform 0.2s ease-in-out;
+}
+
+.button_Contact:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.20), 0 17px 50px 0 rgba(255, 255, 255, 0.20);
+}
+
+.img_contact {
+    width: 100%;
+}
+
+/* Project html */
+
+.header_ven {
+    grid-column: 2;
+    text-align: center;
+
+    margin-left: 15%;
+    margin-right: 10%;
+}
+
+#section_My_project {
+    margin-bottom: 7%;
+}
+
+#legend_My_project {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 3% 0% 3%;
+}
+
+#fieldset_My_project_ProjectI {
+    margin: 3% 0% 3% 0%;
+}
+
+#legend_My_project_ProjectI {
+    font-size: 200%;
+    font-weight: bold;
+    padding: 0% 3% 0% 3%;
+}
+
+#div_My_project_ProjectI {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+
+    font-size: 150%;
+}
+
+#div_My_project_ProjectI_Left {
+    grid-column: 1;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#img_ProjectI_pic {
+    width: 100%;
+    border-radius: 12px;
+    border: 10px solid rgb(255, 255, 255);
+}
+
+#div_My_project_ProjectI_Right {
+    grid-column: 2;
+    text-align: center;
+
+    line-height: 1.5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+}
+
+#div_My_project_ProjectI_2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 150%;
+}
+
+.img_ProjectI_GP_pic {
+    width: 32%;
+    border-radius: 12px;
+    border: 10px solid rgb(255, 255, 255);
+}
+
+#fieldset_My_project_Drive_Dripper {
+    margin: 3% 0% 3% 0%;
+}
+
+#legend_My_project_Drive_Dripper {
+    font-size: 200%;
+    font-weight: bold;
+    padding: 0% 3% 0% 3%;
+}
+
+#div_My_project_Drive_Dripper {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+
+    font-size: 150%;
+}
+
+#div_My_project_Drive_Dripper_Left {
+    grid-column: 1;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#img_DriveDripper_pic {
+    width: 100%;
+    border-radius: 12px;
+    border: 10px solid rgb(255, 255, 255);
+}
+
+#div_My_project_Drive_Dripper_Right {
+    grid-column: 2;
+    text-align: center;
+
+    line-height: 1.5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    
+}
+
+/* Reference setting */
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+a:hover{
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 900px){
+    .header {
+        font-size: 125%;
+    }
+
+    .button {
+        width: 75%;
+    }
+
+    .About_Me {
+        font-size: 100%;
+    }
+
+    #img_Profile_pic {
+        width: 75%;
+        border-radius: 12px;
+        border: 10px solid rgb(255, 255, 255);
+    }
+
+    #section_About_Me {
+        margin-bottom: 12%;
+    }
+    
+    #section_Skill {
+        margin-bottom: 7%;
+    }
+    
+    #section_Contact {
+        margin-bottom: 10%;
+    }
+
+    #legend_About_ME {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_Skill {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: right;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #legend_Skill_ass {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_ass {
+        font-size: 100%;
+    }
+
+    #legend_Skill_project {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_project {
+        font-size: 100%;
+    }
+
+    #legend_Contact {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_My_project {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_My_project_ProjectI {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #div_My_project_ProjectI {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        align-items: center;
+    
+        font-size: 90%;
+    }
+
+    #img_ProjectI_pic {
+        width: 85%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    .img_ProjectI_GP_pic {
+        width: 27%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    #legend_My_project_Drive_Dripper {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #div_My_project_Drive_Dripper {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        align-items: center;
+    
+        font-size: 90%;
+    }
+
+    #img_DriveDripper_pic {
+        width: 85%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+    
+}
+
+@media only screen and (max-width: 480px){
+    .header {
+        font-size: 85%;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .About_Me {
+        font-size: 75%;
+    }
+
+    #img_Profile_pic {
+        width: 85%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    #section_About_Me {
+        margin-bottom: 3%;
+    }
+    
+    #section_Skill {
+        margin-bottom: 3%;
+    }
+    
+    #section_Contact {
+        margin-bottom: 3%;
+    }
+
+    #legend_About_ME {
+        font-size: 125%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_Skill {
+        font-size: 125%;
+        font-weight: bold;
+        text-align: right;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #legend_Skill_ass {
+        font-size: 100%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_ass {
+        font-size: 75%;
+    }
+
+    #legend_Skill_project {
+        font-size: 100%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_project {
+        font-size: 75%;
+    }
+
+    #legend_Contact {
+        font-size: 125%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+}

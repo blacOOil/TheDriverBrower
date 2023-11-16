@@ -45,6 +45,15 @@ header {
 #header_Name {
     font-size: 150%;
     font-weight: bold;
+    font-family: 'Optima', sans-serif;
+}
+
+.button_Head {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
 }
 
 .header_Center {

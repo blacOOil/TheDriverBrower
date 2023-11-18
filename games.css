@@ -1,0 +1,45 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+
+canvas {
+    border: 2px solid white;
+    background-color: #424242;
+}
+
+#p1 {
+    color: #CCC9DC;
+    position: absolute;
+    /* left: 100px; */
+    top: 10px;
+    font-family: cursive;
+    font-size: x-large;
+}
+
+#p2 {
+    color: #CCC9DC;
+    position: absolute;
+    /* left: 100px; */
+    top: 30px;
+    font-family: cursive;
+    font-size: x-large;
+    margin-top: 35px;
+}
+
+#score {
+    color: yellow;
+}
+
+#high {
+    color: #E43F5A;
+}
+    

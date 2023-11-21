@@ -1,44 +1,14 @@
-window.onload = loginLoad;
+window.onload = pageLoad;
 
-const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const username = urlParams.get('username')
-const password = urlParams.get('password')
-
-function loginLoad() {
-    var form = document.getElementById("myLogin");
-    form.onsubmit = function (event) {
-        event.preventDefault(); 
-        checkLogin();  
-    };
-
-    setFormValues(); 
-
-    if (username && password) {
-        form.username.disabled = true;
-        form.password.disabled = true;
-    }
+function pageLoad(){
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	if (urlParams.get("error")==1){
+		if (window.location.href.split('/').pop()== "Regis.html"){
+			document.getElementById('errordisplay').innerHTML = "Registration Error!"
+		}else{
+			document.getElementById('errordisplay').innerHTML = "Username or password does not match.";
+		}
+		
+	}	
 }
-
-
-function checkLogin() {
-    if (document.forms["myLogin"]["username"].value == username){
-        if (document.forms["myLogin"]["password"].value == password){
-            alert("ได้");
-            return false;
-
-        }
-        else {
-            alert("รหัสผิดพลาด");
-            return true;
-
-        }
-    }
-    else{
-        alert("Usernameผิดพลาด")
-         return true;
-
-    }
-}
-
-

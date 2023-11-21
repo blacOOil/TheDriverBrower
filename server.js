@@ -93,6 +93,27 @@ app.get('/logout', (req,res) => {
     res.clearCookie('img');
     return res.redirect('login.html');
 })
+// <----- comment Session ------->
+app.get('/readPost', async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS PostInfo ( username VARCHAR(255), post VARCHAR(500))";
+    let result = await queryDB(sql)
+    sql = `SELECT username, post FROM PostInfo`
+    result = await queryDB(sql)
+    result = Object.assign({},result)
+    console.log("read pass");
+    console.log(result);
+    res.json(result);
+  })
+  app.post('/writePost',async (req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS PostInfo ( username VARCHAR(255), post VARCHAR(500))";
+    let result = await queryDB(sql);
+    sql = `INSERT into PostInfo (username, post) VALUES ("${req.body.user}","${req.body.message}")`
+    result = await queryDB(sql);
+    console.log("post pass");
+    console.log(result);
+    return res.redirect("feed.html");
+  })
+
 
 
 app.listen(port, hostname, () => {

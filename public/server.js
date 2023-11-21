@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-      callback(null, '/img/');
+      callback(null, 'public/img/');
     },
 
     filename: (req, file, cb) => {

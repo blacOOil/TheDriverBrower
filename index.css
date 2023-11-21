@@ -123,7 +123,7 @@ fieldset {
     font-family: 'Optima', sans-serif;
     color: white;
 
-    /* transition: transform 0.4s ease-in-out; */
+    transition: transform 0.4s ease-in-out;
 }
 
 #legend_Game {
@@ -229,66 +229,6 @@ a{
 a:hover{
     text-decoration: underline;
     color: rgb(255, 255, 255);
-}
-
-/* Login */
-#fieldset_Login {
-    display: block;
-    margin: 3% 35% 3% 35%;
-    padding: 3% 3% 3% 3%;
-    
-    border-radius: 10px;
-    border: 3px solid rgb(255, 255, 255);
-
-    text-align: center;
-    font-size: 100%;
-    font-family: 'Optima', sans-serif;
-    color: white;
-
-    /* transition: transform 0.4s ease-in-out; */
-}
-
-#legend_Login {
-    font-size: 200%;
-    font-weight: bold;
-    text-align: left;
-    padding: 0% 5% 0% 5%;
-}
-
-.Login {
-    font-size: 150%;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Register */
-#fieldset_Register {
-    display: block;
-    margin: 3% 30% 3% 30%;
-    padding: 3% 3%;
-    
-    border-radius: 10px;
-    border: 3px solid rgb(255, 255, 255);
-
-    text-align: left;
-    font-size: 100%;
-    font-family: 'Optima', sans-serif;
-    color: white;
-
-    /* transition: transform 0.4s ease-in-out; */
-}
-
-#legend_Register {
-    font-size: 200%;
-    font-weight: bold;
-    text-align: left;
-    padding: 0% 5% 0% 5%;
-}
-
-.Register {
-    font-size: 150%;
-    font-weight: bold;
-    text-align: left;
 }
 
 /* Responsive */

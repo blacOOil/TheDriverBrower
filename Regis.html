@@ -4,56 +4,44 @@
 	<meta charset='utf-8'>
 	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<link rel='stylesheet' type='text/css' media='screen' href='index.css'>
-	<link href="https://fonts.cdnfonts.com/css/optima" rel="stylesheet">
+	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 	<script src='Regis.js'></script>
 
 	<title>Registration</title>
 </head>
 <body>
-	<!-- Header -->
-	<header>
-        <div class="header">
-            <div class="header_Left"></div>
-            <div class="header_Center">
-                <a href="./index.html"> <button class="button_Head" id="header_Name"> The Driver </button></a>
-            </div>
-            <div class="header_Right">
-                <!-- <a href="./index.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Refresh"/></button></a>
-                <a href="index.html/#section_Game"> <button class="button"><img class="header_button_img" src="img/Icon/button_game.png" alt="button_Game"/></button></a>
-                <a href="./Leaderboard.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_leaderboard.png" alt="button_Leaderboard"/></button></a>
-                <a href="./Login.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Login"/></button></a> -->
-            </div>
-        </div>
-    </header>
-
 	<form name="myForm" id="myForm" onsubmit="return validateForm();" action="login.html">
-		<fieldset id="fieldset_Register">
-			<legend id="legend_Register">Register</legend>
-			<div class="Register">
-				<span id="errormsg"></span>
-				First name*: <input type="text" name="firstname" required>
-				<br>
-				Last name*: <input type="text" name="lastname">
-				<br>
-				Gender*: 
-					<input type="radio" name="gender" value="male" required> Male
-					<input type="radio" name="gender" value="female"> Woman
-					<input type="radio" name="gender" value="other"> Other
-				<br>
-				Birthday*: <input type="date" name="bday" required>
-				<br>
-				Email address*: <input type="email" name="email" required>
-				<br>
-				Username*: <input type="text" name="username" required>
-				<br>
-				Password*: <input type="password" name="password" required>
-				<br>
-				Retype Password*: <input type="password" name="retype_password" required>
-				<br>
-				<input type="submit" value="Register">
-				<input type="reset" value="Reset">
-			</div>
+		<fieldset>
+			<legend>Register</legend>
+			<span>* required</span> <br>
+			<span id="errormsg"></span> <br>
+			First name*: 
+			<input type="text" name="firstname" required>
+			Last name*: 
+			<input type="text" name="lastname">
+			<br>
+			Gender*: 
+			<input type="radio" name="gender" value="male" required>Male
+			<input type="radio" name="gender" value="female">Woman
+			<input type="radio" name="gender" value="other">Other
+			<br>
+			Birthday*: 
+			<input type="date" name="bday" required>
+			<br>
+			Email address*: 
+			<input type="email" name="email" required>
+			<br>
+			Username*: 
+			<input type="text" name="username" required>
+			<br>
+			Password*: 
+			<input type="password" name="password" required>
+			<br>
+			Retype Password*: 
+			<input type="password" name="retype_password" required>
+			<br>
+			<input type="submit" value="Register">
+			<input type="reset" value="Reset">
 		</fieldset>
 	</form>
 </body>

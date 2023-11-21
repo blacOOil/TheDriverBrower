@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-      callback(null, 'public/img/');
+      callback(null, '/img/');
     },
 
     filename: (req, file, cb) => {
@@ -28,7 +28,7 @@ const con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "DriverBrowser"
+    database: "driverbrowser"
 })
 
 con.connect(err => {
@@ -63,7 +63,7 @@ app.post('/checkLogin',async (req,res) => {
           console.log('login Succesfull')
           res.cookie("username",result[keys[key_counter]].username);
           res.cookie("password",result[keys[key_counter]].password);
-          return res.redirect('feed.html');
+          return res.redirect('index.html');
         }
       }
       if(checker == false)
@@ -78,9 +78,9 @@ app.post('/checkLogin',async (req,res) => {
 
 app.post('/regisDB', async (req,res) => {
     let now_date = new Date().toISOString().slice(0, 19).replace('T', ' ');
-    let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY, reg_date TIMESTAMP, username VARCHAR(255),password VARCHAR(100))";
+    let sql = "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY,  username VARCHAR(255),password VARCHAR(100))";
     let result = await queryDB(sql);
-    sql = `INSERT INTO userInfo (reg_date,username,  password) VALUES ("${now_date}","${req.body.username}","${req.body.password}"`;
+    sql = `INSERT INTO userInfo (username,  password) VALUES ("${req.body.username}","${req.body.password}"`;
     result = await queryDB(sql);
     console.log("New ID ADD now");
     console.log(result);
@@ -111,12 +111,12 @@ app.get('/readPost', async (req,res) => {
     result = await queryDB(sql);
     console.log("post pass");
     console.log(result);
-    return res.redirect("feed.html");
+    return res.redirect("index.html");
   })
 
 
 
 app.listen(port, hostname, () => {
-    console.log(`Server running at   http://${hostname}:${port}/register.html`);
+    console.log(`Server running at   http://${hostname}:${port}/index.html`);
 });
 

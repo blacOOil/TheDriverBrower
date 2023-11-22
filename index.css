@@ -264,7 +264,7 @@ a:hover{
 /* Register */
 #fieldset_Register {
     display: block;
-    margin: 3% 30% 3% 30%;
+    margin: 3% 35% 3% 35%;
     padding: 3% 3%;
     
     border-radius: 10px;
@@ -290,6 +290,128 @@ a:hover{
     font-weight: bold;
     text-align: left;
 }
+
+.Content {
+    position: relative;
+    --primary: #2196f3;
+}
+
+input {
+    all: initial;
+
+    font-size: 100%;
+    font-weight: bold;
+    color: #ffffff;
+    
+    padding: 10px;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus {
+    border: 2px solid var(--primary);
+}
+
+input[class=input_email]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_email] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[class=input_username]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_username] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[class=input_password]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_password] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[class=input_retype_password]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_retype_password] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input_email {
+    width: 80%;
+}
+.input_username {
+    width: 80%;
+}
+.input_password {
+    width: 50%;
+}
+.input_retype_password {
+    width: 50%;
+}
+
+.button_regis_login {
+    all: unset;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.a_button:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/* input[type=text] {
+    width: 0%;
+    transition: width 0.4s ease-in-out;
+}
+  
+input[type=text]:focus {
+    width: 50%;
+} */
 
 /* Responsive */
 

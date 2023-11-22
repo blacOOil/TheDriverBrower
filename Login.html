@@ -33,12 +33,19 @@
 		<fieldset id="fieldset_Login">
 			<legend id="legend_Login"> Login </legend>
 			<div class="Login">
-				Username : <input type="text" name="Username" value="" placeholder="Username" required> <br>
-				Password : <input type="password" name="Password" value="" placeholder="Password" required> <br>
+				<div class="Content">
+					<input class="input_username" type="text" name="Username" value="" placeholder="" required>
+					<label class="label_email"> Email address* </label>
+				</div>
+				<br>
+				<div class="Content">
+					<input class="input_password" type="password" name="Password" value="" placeholder="" required>
+					<label class="label_password"> Password* </label>
+				</div>
 				<span id="errordisplay"></span><br>
-				<input type="submit" value="Enter">
-				<input type="reset" value="Reset">
-				<button class="button_register"><a href="./Regis.html"> Register </a></button>
+				<input class="button_regis_login" type="submit" value="Enter">
+				<input class="button_regis_login" type="reset" value="Reset">
+				<button class="button_regis_login"><a class="a_button" href="./Regis.html"> Register </a></button>
 			</div>
 		</fieldset>
 	</form>

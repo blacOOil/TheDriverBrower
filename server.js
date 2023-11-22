@@ -48,33 +48,36 @@ const queryDB = (sql) => {
         })
     })
 }
-app.post('/checkLogin',async (req,res) => {
-    let sql = `SELECT username, password FROM userInfo`;
-    var checker = false;
-    let result = await queryDB(sql);
-    result = Object.assign({},result);
-    var keys = Object.keys(result);
-      for(var key_counter = 0; key_counter < keys.length; key_counter++ )
-      {
-        if(req.body.username == result[keys[key_counter]].username &&
-           req.body.password == result[keys[key_counter]].password)
-        {
-          checker = true;
-          console.log('login Succesfull')
-          res.cookie("username",result[keys[key_counter]].username);
-          res.cookie("password",result[keys[key_counter]].password);
+app.post('/checkLogin', async (req, res) => {
+  let sql = `SELECT username, password FROM userInfo`;
+  let result;
+
+  try {
+      result = await queryDB(sql);
+  } catch (error) {
+      console.error('Error fetching data from the database:', error);
+      return res.status(500).send('Internal Server Error');
+  }
+
+  const usernameInput = req.body.Username; // Note the capital 'U' in 'Username'
+  const passwordInput = req.body.Password;
+
+  for (let key_counter = 0; key_counter < result.length; key_counter++) {
+      const dbUsername = result[key_counter].username;
+      const dbPassword = result[key_counter].password;
+
+      if (usernameInput === dbUsername && passwordInput === dbPassword) {
+          console.log('Login Successful');
+          res.cookie('username', dbUsername);
+          res.cookie('password', dbPassword);
           return res.redirect('index.html');
-        }
       }
-      if(checker == false)
-      {
-        console.log('login fail');
-        checker = false;
-        return res.redirect('login.html?error=1')
-      }
-      
-      
-  })
+  }
+
+  console.log('Login Failed');
+  return res.redirect('login.html?error=1');
+});
+
 
 app.post('/regisDB', async (req,res) => {
     let now_date = new Date().toISOString().slice(0, 19).replace('T', ' ');

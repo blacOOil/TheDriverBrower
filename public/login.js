@@ -1,14 +1,10 @@
 window.onload = pageLoad;
 
 function pageLoad(){
-	const queryString = window.location.search;
-	const urlParams = new URLSearchParams(queryString);
-	if (urlParams.get("error")==1){
-		if (window.location.href.split('/').pop()== "Regis.html"){
-			document.getElementById('errordisplay').innerHTML = "Registration Error!"
-		}else{
-			document.getElementById('errordisplay').innerHTML = "Username or password does not match.";
-		}
-		
-	}	
+	if (urlParams.get("error")) {
+		const errorMessage = window.location.href.includes("Regis.html")
+			? "Registration Error!"
+			: "Username or password does not match.";
+		document.getElementById('errordisplay').innerHTML = errorMessage;
+	}
 }

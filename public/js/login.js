@@ -1,11 +1,12 @@
-window.onload = loginLoad;
+window.onload = pageLoad;
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const username = urlParams.get('username')
 const password = urlParams.get('password')
 
-function loginLoad() {
+function pageLoad() {
+    document.getElementById('input_checkpassword').onclick = TogglePassword;
     var form = document.getElementById("myLogin");
     form.onsubmit = function (event) {
         event.preventDefault(); 
@@ -40,5 +41,18 @@ function checkLogin() {
 
     }
 }
+
+function TogglePassword() {
+    var x = document.getElementById("check_password");
+    var z = document.getElementById("label_changetext");
+  
+    if (x.type === "password" && z.innerHTML === "Hidden On") {
+      x.type = "text";
+      z.innerHTML = "Hidden Off";
+    } else {
+      x.type = "password";
+      z.innerHTML = "Hidden On";
+    }
+  }
 
 

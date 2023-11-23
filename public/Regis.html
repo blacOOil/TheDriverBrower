@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen' href='./css/index.css'>
+	<link href="https://fonts.cdnfonts.com/css/optima" rel="stylesheet">
+	<script src='./js/register.js'></script>
+
+	<title>Registration</title>
+</head>
+<body>
+	<!-- Header -->
+	<header>
+        <div class="header">
+            <div class="header_Left"></div>
+            <div class="header_Center">
+                <a href="./index.html"> <button class="button_Head" id="header_Name"> The Driver </button></a>
+            </div>
+            <div class="header_Right">
+                <!-- <a href="./index.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Refresh"/></button></a>
+                <a href="index.html/#section_Game"> <button class="button"><img class="header_button_img" src="img/Icon/button_game.png" alt="button_Game"/></button></a>
+                <a href="./Leaderboard.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_leaderboard.png" alt="button_Leaderboard"/></button></a>
+                <a href="./Login.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Login"/></button></a> -->
+            </div>
+        </div>
+    </header>
+
+	<form name="myForm" id="myForm" onsubmit="return validateForm();" action="login.html">
+		<fieldset id="fieldset_Register">
+			<legend id="legend_Register">Register</legend>
+			<div class="Register">
+				<span id="errormsg"></span>
+				<!-- First name*: <input type="text" name="firstname" required>
+				<br>
+				Last name*: <input type="text" name="lastname">
+				<br>
+				Gender*: 
+					<input type="radio" name="gender" value="male" required> Male
+					<input type="radio" name="gender" value="female"> Woman
+					<input type="radio" name="gender" value="other"> Other
+				<br>
+				Birthday*: <input type="date" name="bday" required>
+				<br> -->
+				<div class="Content">
+					<input class="input_email" type="email" name="email" required>
+					<label class="label_email"> Email address* </label>
+				</div>
+				<br>
+				<div class="Content">
+					<input class="input_username" type="text" name="username" required>
+					<label class="label_username"> Username* </label>
+				</div>
+				<br>
+				<div class="Content" class="checkmark_container">
+					<input class="input_password" type="password" name="password" id="check_password" required>
+					<label class="label_password"> Password* </label>
+				</div>
+				<br>
+				<div class="Content" class="checkmark_container">
+					<input class="input_retype_password" type="password" name="retype_password" id="check_retype_password" required>
+					<label class="label_retype_password"> Retype Password* </label>
+					<input class="input_checkpassword" type="checkbox" onclick="TogglePassword()" >
+					<span class="checkmark"></span>
+				</div>
+				<br>
+				<input class="button_regis_login" type="submit" value="Enter">
+				<input class="button_regis_login" type="reset" value="Reset">
+				<button class="button_regis_login"><a class="a_button" href="./Login.html"> Login </a></button>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>

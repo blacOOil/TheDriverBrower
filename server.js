@@ -14,11 +14,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
+//อย่าลืมเปลี่ยน database กลับ
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "profile"
+    database: "MDT312Quiz3"
 })
 
 con.connect(err => {
@@ -39,6 +40,6 @@ const queryDB = (sql) => {
     })
 }
 app.listen(port, hostname, () => {
-    console.log(`Server running at   http://${hostname}:${port}/register.html`);
+    console.log(`Server running at   http://${hostname}:${port}/index.html`);
 });
 

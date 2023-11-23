@@ -18,5 +18,21 @@ function pageLoad() {
   
       return true;
   }
+
+function TogglePassword() {
+    var x = document.getElementById("check_password");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+
+    var y = document.getElementById("check_retype_password");
+    if (y.type === "password") {
+      y.type = "text";
+    } else {
+      y.type = "password";
+    }
+}
     
 

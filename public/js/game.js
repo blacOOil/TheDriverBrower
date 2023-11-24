@@ -2,7 +2,51 @@ window.onload = pageLoad;
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
+}
 
+// function timeStart(){
+// 	var TIMER_TICK = 1000;
+// 	var timer = null ;
+// 	var min = 0.05 ; // 0.5 minute
+// 	var second = min * 60 ; 
+// 	var x = document.getElementById("clock") ;
+// 	//setting timer using setInterval function
+// 	timer = setInterval(timeCount,TIMER_TICK);
+
+// 	function timeCount(){
+// 		var getAllElement = 0;
+// 		x.innerHTML = second;
+// 		var xyz = document.getElementById('label_lose');
+
+// 		if (xyz.length === getAllElement) {
+// 			alert("You win.");
+// 			clearInterval(timer);
+// 			timer = null;
+// 			clearScreen();
+// 		}
+
+// 		if(second === getAllElement) {
+// 			alert("Game over.");
+// 			alert("You lost.");
+// 			clearInterval(timer);
+// 			timer = null;
+// 			clearScreen();
+// 		} else {
+// 		  second--;
+// 		}
+// 			// จัดการเกี่ยวกับเวลา เช่น ถ้ายังมีกล่องเหลืออยู่ เวลาจะลดลงเรื่อยๆ 
+// 			// ถ้าไม่มีกล่องเหลือแล้ว และเวลายังเหลืออยู่จะขึ้นว่า You win!
+// 			// ถ้าเวลาหมด แต่ยังมีกล่องเหลืออยู่ จะบอกว่า Game over และทำการ clear screen
+// 	}
+// }
+
+function pad(val) {
+  var valString = val + "";
+  if (valString.length < 2) {
+    return "0" + valString;
+  } else {
+    return valString;
+  }
 }
 
 function Reset() {
@@ -47,7 +91,7 @@ function GameScript() {
     requestAnimationFrame(loop);
 
     // slow game loop to 15 fps instead of 60 (60/15 = 4)
-    if (++count < 4) {
+    if (++count < 3) {
       return;
     }
 
@@ -93,8 +137,8 @@ function GameScript() {
         score += 1;
         document.getElementById('score').innerHTML = '&nbsp;' + score;
         // canvas is 400x400 which is 25x25 grids 
-        food.x = getRandomInt(0, 25) * grid;
-        food.y = getRandomInt(0, 25) * grid;
+        food.x = getRandomInt(0, 75) * grid;
+        food.y = getRandomInt(0, 35) * grid;
       }
 
       // check collision with all cells after this one (modified bubble sort)
@@ -112,9 +156,12 @@ function GameScript() {
           snake.dx = grid;
           snake.dy = 0;
           score = 0;
-          food.x = getRandomInt(0, 25) * grid;
-          food.y = getRandomInt(0, 25) * grid;
+          food.x = getRandomInt(0, 75) * grid;
+          food.y = getRandomInt(0, 35) * grid;
           document.getElementById('high').innerHTML = '&nbsp;' + max;
+
+          var totalSeconds = 3;
+          var timeover = 0;
           var losegame = document.getElementById('label_lose');
 
           if (losegame.innerHTML === "") {
@@ -123,6 +170,15 @@ function GameScript() {
             losegame.innerHTML = "";
           }
 
+          if (losegame.innerHTML = "You Lose,Try again later") {
+            setInterval(setTime, 1000);
+            function setTime() {
+              totalSeconds--;
+              if (totalSeconds == 0) {
+                losegame.innerHTML = "";
+              }
+            }
+          }
         }
       }
     });

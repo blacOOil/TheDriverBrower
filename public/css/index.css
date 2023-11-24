@@ -161,25 +161,27 @@ canvas {
 
 #p1 {
     color: #CCC9DC;
-    /* left: 100px; */
-    top: 10px;
     font-family: cursive;
     font-size: x-large;
 }
 
 #p2 {
     color: #CCC9DC;
-    /* left: 100px; */
-    top: 30px;
     font-family: cursive;
     font-size: x-large;
 }
 
-#label_lose {
-    color: #ffffff;
+#pgame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 25px;
 }
 
-input[id=playgame]:is(:focus, :valid ) {
+#label_lose {
+    margin-bottom: 25px;
+    color: #ffffff;
 }
 
 /* LeaderBoard & Comment */
@@ -425,6 +427,7 @@ label[class=label_retype_password] {
 }
 .input_password {
     width: 50%;
+    margin-right: 20px;
 }
 .input_retype_password {
     width: 50%;
@@ -462,10 +465,6 @@ label[id=label_changetext] {
     pointer-events: none;
     transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-  
-/* .input_checkpassword:checked {
-    background-color: #ffffff;
-} */
 
 .button_togglepassword {
     width: 50%;

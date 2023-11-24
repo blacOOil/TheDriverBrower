@@ -137,13 +137,49 @@ fieldset {
     padding: 0% 3% 0% 3%;
 }
 
-.Game {
+#Game {
     grid-column: 1;
     text-align: center;
 
     line-height: 1.5;
 
     font-size: 150%;
+}
+
+#score {
+    color: yellow;
+}
+
+#high {
+    color: #E43F5A;
+}
+
+canvas {
+    border: 2px solid white;
+    background-color: #424242;
+}
+
+#p1 {
+    color: #CCC9DC;
+    /* left: 100px; */
+    top: 10px;
+    font-family: cursive;
+    font-size: x-large;
+}
+
+#p2 {
+    color: #CCC9DC;
+    /* left: 100px; */
+    top: 30px;
+    font-family: cursive;
+    font-size: x-large;
+}
+
+#label_lose {
+    color: #ffffff;
+}
+
+input[id=playgame]:is(:focus, :valid ) {
 }
 
 /* LeaderBoard & Comment */

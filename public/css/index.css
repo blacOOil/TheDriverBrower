@@ -91,6 +91,10 @@ header {
     border-radius: 12px;
 }
 
+#button_profile:hover {
+    
+}
+
 .header_button_img {
     width: 100%;
     border-radius: 12px;
@@ -231,8 +235,6 @@ a:hover{
     color: rgb(255, 255, 255);
 }
 
-<<<<<<< HEAD
-=======
 /* Login */
 #fieldset_Login {
     display: block;
@@ -459,7 +461,6 @@ input[type=text]:focus {
     width: 50%;
 } */
 
->>>>>>> master
 /* Responsive */
 
 @media only screen and (max-width: 900px){

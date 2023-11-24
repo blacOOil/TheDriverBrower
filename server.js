@@ -95,6 +95,10 @@ app.get('/logout', (req,res) => {
     res.clearCookie('img');
     return res.redirect('login.html');
 })
+//<--Game Section--->
+app.post('/gethithtScore',async(req,res) =>{
+    let sql ="";
+})
 // <----- comment Session ------->
 app.get('/readPost', async (req,res) => {
     let sql = "CREATE TABLE IF NOT EXISTS PostInfo ( username VARCHAR(255), post VARCHAR(500))";

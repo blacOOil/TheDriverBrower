@@ -3,7 +3,8 @@ window.onload = pageLoad;
 function pageLoad() {
   document.getElementById('input_checkpassword').onclick = TogglePassword;
 
-
+  TogglePassword(); // เซ็ตก่อน 1 รอบ
+  
   var form = document.getElementById("myForm");
   form.onsubmit = validateForm;
 }

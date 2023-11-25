@@ -4,6 +4,8 @@ window.onload = pageLoad;
 function pageLoad(){
 	document.getElementById('input_checkpassword').onclick = TogglePassword;
 
+	TogglePassword(); // เซ็ตก่อน 1 รอบห
+
 	const queryString = window.location.search;
 	const urlParams = new URLSearchParams(queryString);
 	if (urlParams.get("error")) {

@@ -1,0 +1,705 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: black;
+}
+
+header {
+    display: block;
+    position: sticky;
+    top: 0;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    background-color: white;
+
+    font-size: 150%;
+    font-family: 'Optima', sans-serif;
+
+    padding: 1% 0;
+}
+
+.header_Left {
+    grid-column: 1;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-left: 10%;
+}
+
+#header_Name {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Optima', sans-serif;
+}
+
+.button_Head {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+
+.header_Center {
+    grid-column: 2;
+    text-align: center;
+    padding: 1%;
+}
+  
+.header_Right {
+    grid-column: 3;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-right: 10%;
+}
+
+.button {
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+
+    transition: transform 0.4s ease-in-out;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+}
+
+#button_profile:hover {
+    
+}
+
+.header_button_img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* Game Content */
+
+#section_Game {
+    margin-bottom: 7%;
+}
+
+#section_Comment {
+    margin-bottom: 10%;
+}
+
+#section_Contact {
+    margin-bottom: 10%;
+}
+
+fieldset {
+    display: block;
+    margin: 3% 3% 3% 3%;
+    padding: 3% 3% 3% 3%;
+    
+    border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Optima', sans-serif;
+    color: white;
+
+    transition: transform 0.4s ease-in-out;
+}
+
+#legend_Game {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 3% 0% 3%;
+}
+
+#Game {
+    grid-column: 1;
+    text-align: center;
+
+    line-height: 1.5;
+
+    font-size: 150%;
+}
+
+#score {
+    color: yellow;
+}
+
+#high {
+    color: #E43F5A;
+}
+
+canvas {
+    border: 2px solid white;
+    background-color: #424242;
+}
+
+#p1 {
+    color: #CCC9DC;
+    font-family: cursive;
+    font-size: x-large;
+}
+
+#p2 {
+    color: #CCC9DC;
+    font-family: cursive;
+    font-size: x-large;
+}
+
+#pgame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 25px;
+}
+
+#label_lose {
+    margin-bottom: 25px;
+    color: #ffffff;
+}
+
+/* LeaderBoard & Comment */
+
+#section_LeaderBoard {
+    margin-bottom: 10%;
+}
+
+#fieldset_LeaderBoard {
+    margin: 3% 0% 3% 0%;
+}
+
+#legend_LeaderBoard {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 3% 0% 3%;
+    
+}
+
+#div_LeaderBoard {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+/* Comment */
+
+#legend_Comment {
+    font-size: 200%;
+    font-weight: bold;
+    padding: 0% 3% 0% 3%;
+    
+}
+
+#div_Skill_project {
+    font-size: 150%;
+
+    display: grid;
+    grid-template-columns: auto auto;
+
+    line-height: 1.5;
+}
+
+/* Contact */
+
+#legend_Contact {
+    font-size: 250%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 3% 0% 3%;
+}
+
+#div_Skill_Contact {
+    text-align: left;
+}
+
+.button_Contact {
+    width: 4%;
+    border: none;
+    border-radius: 100%;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+
+    margin-left: 3%;
+    margin-right: 3%;
+
+    transition: transform 0.2s ease-in-out;
+}
+
+.button_Contact:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px 0 rgba(255, 255, 255, 0.20), 0 17px 50px 0 rgba(255, 255, 255, 0.20);
+}
+
+.img_contact {
+    width: 100%;
+}
+
+/* Reference setting */
+a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+a:hover{
+    text-decoration: underline;
+    color: rgb(255, 255, 255);
+}
+
+/* Login */
+#fieldset_Login {
+    display: block;
+    margin: 3% 35% 3% 35%;
+    padding: 3% 3% 3% 3%;
+    
+    border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    text-align: center;
+    font-size: 100%;
+    font-family: 'Optima', sans-serif;
+    color: white;
+
+    /* transition: transform 0.4s ease-in-out; */
+}
+
+#legend_Login {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 5% 0% 5%;
+}
+
+.Login {
+    font-size: 150%;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Register */
+#fieldset_Register {
+    display: block;
+    margin: 3% 35% 3% 35%;
+    padding: 3% 3%;
+    
+    border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    text-align: left;
+    font-size: 100%;
+    font-family: 'Optima', sans-serif;
+    color: white;
+
+    /* transition: transform 0.4s ease-in-out; */
+}
+
+#legend_Register {
+    font-size: 200%;
+    font-weight: bold;
+    text-align: left;
+    padding: 0% 5% 0% 5%;
+}
+
+.Register {
+    font-size: 150%;
+    font-weight: bold;
+    text-align: left;
+}
+
+.Content {
+    position: relative;
+    --primary: #2196f3;
+}
+
+input {
+    all: initial;
+
+    font-size: 100%;
+    font-weight: bold;
+    color: #ffffff;
+    
+    padding: 10px;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input:focus {
+    border: 2px solid var(--primary);
+}
+
+input[class=input_email]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_email] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[class=input_username]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_username] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[class=input_password]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_password] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input[class=input_retype_password]:is(:focus, :valid ) ~ label {
+    transform: translateY(-80%) scale(0.7);
+    background-color: #000000;
+    padding-inline: 3px;
+    color:  var(--primary);
+}
+
+label[class=label_retype_password] {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.input_email {
+    width: 80%;
+}
+.input_username {
+    width: 80%;
+}
+.input_password {
+    width: 50%;
+    margin-right: 20px;
+}
+.input_retype_password {
+    width: 50%;
+    margin-right: 20px;
+}
+
+.checkmark_container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.input_checkpassword {
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    background-color: #000000;
+}
+
+.input_checkpassword:hover {
+    background-color: #585858;
+}
+
+label[id=label_changetext] {
+    margin-left: 55px;
+    font-size: 60%;
+    color: #929292;
+    pointer-events: none;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.button_togglepassword {
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+}
+
+.button_regis_login {
+    all: unset;
+    color: #ffffff;
+    padding: 5px 10px;
+    border: 2px solid #9e9e9e;
+    border-radius: 8px;
+    transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.a_button:hover{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+/* input[type=text] {
+    width: 0%;
+    transition: width 0.4s ease-in-out;
+}
+  
+input[type=text]:focus {
+    width: 50%;
+} */
+
+/* Responsive */
+
+@media only screen and (max-width: 900px){
+    .header {
+        font-size: 125%;
+    }
+
+    .button {
+        width: 75%;
+    }
+
+    .About_Me {
+        font-size: 100%;
+    }
+
+    #img_Profile_pic {
+        width: 75%;
+        border-radius: 12px;
+        border: 10px solid rgb(255, 255, 255);
+    }
+
+    #section_About_Me {
+        margin-bottom: 12%;
+    }
+    
+    #section_Skill {
+        margin-bottom: 7%;
+    }
+    
+    #section_Contact {
+        margin-bottom: 10%;
+    }
+
+    #legend_About_ME {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_Skill {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: right;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #legend_Skill_ass {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_ass {
+        font-size: 100%;
+    }
+
+    #legend_Skill_project {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_project {
+        font-size: 100%;
+    }
+
+    #legend_Contact {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_My_project {
+        font-size: 200%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_My_project_ProjectI {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #div_My_project_ProjectI {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        align-items: center;
+    
+        font-size: 90%;
+    }
+
+    #img_ProjectI_pic {
+        width: 85%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    .img_ProjectI_GP_pic {
+        width: 27%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    #legend_My_project_Drive_Dripper {
+        font-size: 150%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #div_My_project_Drive_Dripper {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        align-items: center;
+    
+        font-size: 90%;
+    }
+
+    #img_DriveDripper_pic {
+        width: 85%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+    
+}
+
+@media only screen and (max-width: 480px){
+    .header {
+        font-size: 85%;
+    }
+
+    .button {
+        width: 100%;
+    }
+
+    .About_Me {
+        font-size: 75%;
+    }
+
+    #img_Profile_pic {
+        width: 85%;
+        border-radius: 8px;
+        border: 5px solid rgb(255, 255, 255);
+    }
+
+    #section_About_Me {
+        margin-bottom: 3%;
+    }
+    
+    #section_Skill {
+        margin-bottom: 3%;
+    }
+    
+    #section_Contact {
+        margin-bottom: 3%;
+    }
+
+    #legend_About_ME {
+        font-size: 125%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+
+    #legend_Skill {
+        font-size: 125%;
+        font-weight: bold;
+        text-align: right;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #legend_Skill_ass {
+        font-size: 100%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_ass {
+        font-size: 75%;
+    }
+
+    #legend_Skill_project {
+        font-size: 100%;
+        font-weight: bold;
+        padding: 0% 2% 0% 2%;
+        
+    }
+
+    #div_Skill_project {
+        font-size: 75%;
+    }
+
+    #legend_Contact {
+        font-size: 125%;
+        font-weight: bold;
+        text-align: left;
+        padding: 0% 2% 0% 2%;
+    }
+}

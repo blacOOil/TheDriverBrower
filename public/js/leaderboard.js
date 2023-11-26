@@ -1,14 +1,8 @@
 window.onload = pageLoad;
 
 function pageLoad(){
-	var xhr = new XMLHttpRequest();
-    xhr.open("GET", "cloth.json");
-    xhr.onload = function(){
-        var jsdata = JSON.parse(xhr.responseText);
-        showData(jsdata);
-    }
-    xhr.onerror = function() { alert("ERROR!"); }; 
-    xhr.send();
+
+	
 }
 function showData(data){
     var keys = Object.keys(data);
@@ -16,15 +10,58 @@ function showData(data){
         var temp = document.getElementById("layer");
         var list = temp.querySelectorAll("div");
 
-        var brandname = document.createElement("p");
-        brandname.innerText = data[keys[i]].brandname;
+        var username = document.createElement("p");
+        brandname.innerText = data[keys[i]].username;
 
-        var price = document.createElement("p");
-        price.innerText = data[keys[i]].price;
+        var hightscore = document.createElement("p");
+        price.innerText = data[keys[i]].hightscore;
 
-        list[i].appendChild(image);
-        list[i].appendChild(brandname);
-        list[i].appendChild(price);
+        list[i].appendChild(username);
+        list[i].appendChild(hightscore);
         
+    }
+}
+function checkCookie(){
+    var username = "";
+    if(getCookie("username")== false){
+
+    }
+}
+
+function getCookie(name){
+    var value = "";
+    try{
+        value = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith(name))
+        .split("=")[1];
+        return value;
+    } catch (err){
+        return false;
+    }
+}
+async function showScoreBoard(){
+    let response = await fetch("/leaderBoarding");
+    let content = await response.json();
+    showLeaderBoard(content);
+}
+function showLeaderBoard(data){
+    var keys = Object.keys(data);
+    console.log(keys);
+    var divTag = document.getElementById("");
+    divTag.innerHTML = "";
+    for(var i = keys.length - 1; i >= 0; i--){
+        var temp = document.createElement("div");
+        temp.className = "newsleaderboard"
+        divTag.appendChild(temp);
+        var temp1 = document.createElement("div");
+        temp1.className = "score";
+        temp1.innerHTML = data[keys[i]]["score"];
+        temp.appendChild(temp1);
+        var temp1 = document.createElement("div");
+        temp1.className = "username";
+
+        temp1.innerHTML = data[keys[i]]["username"];
+        temp.appendChild(temp1);
     }
 }

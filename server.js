@@ -116,93 +116,21 @@ app.get('/readPost', async (req,res) => {
     console.log(result);
     return res.redirect("index.html");
   })
+//<---leader Board--->
+  app.post('/leaderBoarding',async(req,res) => {
+    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255),Score INT(9999))";
+    let result = await queryDB(sql);
+    sql = `SELECT username,Score FROM BoardInfo ORDER BY Score DESC`
+    result = await queryDB(sql);
+    result = Object.assign({},result)
+    console.log("leaderBoardShowong")
+    console.log(result);
+    res.json(result);
+  })
 
 
 
 app.listen(port, hostname, () => {
     console.log(`Server running at   http://${hostname}:${port}/index.html`);
 
-    const imageFilter = (req, file, cb) => {
-        if (!file.originalname.match(/\.(jpg|JPG|jpeg|JPEG|png|PNG|gif|GIF)$/)) {
-          req.fileValidationError = "Only image files are allowed!";
-          return cb(new Error("Only image files are allowed!"), false);
-        }
-        cb(null, true);
-      };
-      
-      const con = mysql.createConnection({
-        host: "localhost",
-        user: "root",
-        password: "",
-        database: "mydb",
-      });
-      
-      con.connect((err) => {
-        if (err) throw err;
-        else {
-          console.log("MySQL connected");
-        }
-      });
-      
-      const queryDB = (sql) => {
-        return new Promise((resolve, reject) => {
-          con.query(sql, (err, result, fields) => {
-            if (err) reject(err);
-            else resolve(result);
-          });
-        });
-      };
-      
-      
-      //ทำให้สมบูรณ์
-      app.post("/profilepic", async (req, res) => {
-        let upload = multer({ storage: storage, fileFilter: imageFilter }).single(
-          "avatar"
-        );
-        upload(req, res, (err) => {
-          if (req.fileValidationError) {
-            return res.send(req.fileValidationError);
-          } else if (!req.file) {
-            return res.send("Please select an image to upload");
-          } else if (err instanceof multer.MulterError) {
-            return res.send(err);
-          } else if (err) {
-            return res.send(err);
-          }
-          updateImg(req.cookies.username, req.file.filename);
-          res.cookie("img", req.file.filename);
-          return res.redirect("feed.html");
-        });
-      });
-      
-      const updateImg = async (username, filen) => {
-        let sql = `UPDATE userInfo SET img = '${filen}' WHERE username = '${username}'`;
-        let result = await queryDB(sql);
-        console.log(result);
-      };
-
-      app.post("/checkLogin", async (req, res) => {
-          let sql = `SELECT username, img, password FROM userInfo`;
-          let result = await queryDB(sql);
-          result = Object.assign({},result);
-           var keys = Object.keys(result);
-          var IsCorrect = false;
-          for (var numberOfKeys = 0; numberOfKeys < keys.length; numberOfKeys++) {
-          if (
-            req.body.username == result[keys[numberOfKeys]].username &&
-            req.body.password == result[keys[numberOfKeys]].password
-          ) {
-            console.log("login successful");
-            res.cookie("username", result[keys[numberOfKeys]].username);
-            res.cookie("img", result[keys[numberOfKeys]].img);
-            IsCorrect = true;
-            return res.redirect("feed.html");
-          }
-        }
-        if (IsCorrect == false) {
-          IsCorrect = false;
-          console.log("login failed");
-          return res.redirect("login.html?error=1");
-        }
-});
 })

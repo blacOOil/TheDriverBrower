@@ -101,8 +101,8 @@ function GameScript() {
         score += 1;
         document.getElementById('score').innerHTML = '&nbsp;' + score;
         // canvas is 400x400 which is 25x25 grids 
-        food.x = getRandomInt(0, 75) * grid;
-        food.y = getRandomInt(0, 35) * grid;
+        food.x = getRandomInt(0, canvas.width/16) * grid;
+        food.y = getRandomInt(0, canvas.height/16) * grid;
       }
 
       // check collision with all cells after this one (modified bubble sort)
@@ -120,12 +120,11 @@ function GameScript() {
           snake.dx = grid;
           snake.dy = 0;
           score = 0;
-          food.x = getRandomInt(0, 75) * grid;
-          food.y = getRandomInt(0, 35) * grid;
+          food.x = getRandomInt(0, canvas.width/16) * grid;
+          food.y = getRandomInt(0, canvas.height/16) * grid;
           document.getElementById('high').innerHTML = '&nbsp;' + max;
 
           var totalSeconds = 3; //3 second before vanished.
-          var timeover = 0;
           var losegame = document.getElementById('label_lose');
 
           if (losegame.innerHTML === "") {

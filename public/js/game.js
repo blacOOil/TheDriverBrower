@@ -2,9 +2,37 @@ window.onload = pageLoad;
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
-  showLeaderboard();
+  //showLeaderboard();
+ // checkCookie();
 }
 
+function checkCookie(){
+  var username = "";
+  if(getCookie("username") == false){
+    document.cookie = "usernanme=Guest";
+    document.cookie = "password=0";
+    
+  }
+}
+
+function getCookie(name){
+  var value = "";
+  try{
+    value = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(name))
+    .split("=")[1];
+    return value;
+  }catch(err){
+    return false;
+  }
+}
+
+async function checker(){
+  if(getCookie("username")== "Guest"){
+    
+  }
+}
 // function timeStart(){
 // 	var TIMER_TICK = 1000;
 // 	var timer = null ;
@@ -40,6 +68,8 @@ function pageLoad() {
 // 			// ถ้าเวลาหมด แต่ยังมีกล่องเหลืออยู่ จะบอกว่า Game over และทำการ clear screen
 // 	}
 // }
+
+//<----Snake Game--->
 
 function pad(val) {
   var valString = val + "";
@@ -216,9 +246,9 @@ function GameScript() {
   // start the game
   requestAnimationFrame(loop);
 }
-//<---leaderboard here--->
+//<----------------leaderboard here-------------------------------------------->
 async function showLeaderboard() {
- 
+ ""
       console.log('Fetching leaderboard data...');
       // Fetch data from the server
       let response = await fetch("/leaderBoarding");
@@ -245,3 +275,5 @@ function displayLeaderboard(data) {
       leaderboardContainer.appendChild(entryElement);
   }
 }
+
+//<----Get HightScore--->

@@ -86,7 +86,9 @@ app.post('/checkLogin', async (req, res) => {
       const dbPassword = result[key_counter].password;
 
       if (usernameInput === dbUsername && passwordInput === dbPassword) {
-          console.log('Login Successful');
+         
+      
+        document.cookie = "usernanme=Guest";
           res.cookie('username', dbUsername);
           res.cookie('password', dbPassword);
           return res.redirect('index.html');

@@ -134,7 +134,7 @@ app.listen(port, hostname, () => {
         host: "localhost",
         user: "root",
         password: "",
-        database: "mydb",
+        database: "driverbrowser",
       });
       
       con.connect((err) => {

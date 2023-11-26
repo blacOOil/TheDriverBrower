@@ -1,67 +1,38 @@
-window.onload = pageLoad;
 
-function pageLoad(){
+async function showLeaderboard() {
+    try {
+        console.log('Fetching leaderboard data...');
+        // Fetch data from the server
+        let response = await fetch("/leaderBoarding");
 
-	
-}
-function showData(data){
-    var keys = Object.keys(data);
-    for(var i =0; i< keys.length; i++){
-        var temp = document.getElementById("layer");
-        var list = temp.querySelectorAll("div");
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-        var username = document.createElement("p");
-        brandname.innerText = data[keys[i]].username;
+        // Parse the JSON response
+        let data = await response.json();
 
-        var hightscore = document.createElement("p");
-        price.innerText = data[keys[i]].hightscore;
+        // Log the data to the console for verification
+        console.log(data);
 
-        list[i].appendChild(username);
-        list[i].appendChild(hightscore);
-        
-    }
-}
-function checkCookie(){
-    var username = "";
-    if(getCookie("username")== false){
-
+        // Display data on the webpage
+        displayLeaderboard(data);
+    } catch (error) {
+        console.error('Error fetching leaderboard data:', error);
     }
 }
 
-function getCookie(name){
-    var value = "";
-    try{
-        value = document.cookie
-        .split("; ")
-        .find((row) => row.startsWith(name))
-        .split("=")[1];
-        return value;
-    } catch (err){
-        return false;
-    }
-}
-async function showScoreBoard(){
-    let response = await fetch("/leaderBoarding");
-    let content = await response.json();
-    showLeaderBoard(content);
-}
-function showLeaderBoard(data){
-    var keys = Object.keys(data);
-    console.log(keys);
-    var divTag = document.getElementById("");
-    divTag.innerHTML = "";
-    for(var i = keys.length - 1; i >= 0; i--){
-        var temp = document.createElement("div");
-        temp.className = "newsleaderboard"
-        divTag.appendChild(temp);
-        var temp1 = document.createElement("div");
-        temp1.className = "score";
-        temp1.innerHTML = data[keys[i]]["score"];
-        temp.appendChild(temp1);
-        var temp1 = document.createElement("div");
-        temp1.className = "username";
+function displayLeaderboard(data) {
+    // Access the DOM element where you want to display the leaderboard
+    let leaderboardContainer = document.getElementById("div_LeaderBoard");
 
-        temp1.innerHTML = data[keys[i]]["username"];
-        temp.appendChild(temp1);
+    // Clear existing content
+    leaderboardContainer.innerHTML = "";
+
+    // Iterate through the data and create HTML elements to display it
+    for (let entry of data) {
+        let entryElement = document.createElement("div");
+        entryElement.textContent = `Username: ${entry.username}, Score: ${entry.Score}`;
+        leaderboardContainer.appendChild(entryElement);
     }
 }

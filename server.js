@@ -50,6 +50,23 @@ const queryDB = (sql) => {
         })
     })
 }
+//<---leader Board--->
+app.get('/leaderBoarding', async (req, res) => {
+    console.log("pleaseee");
+  try {
+    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255), Score INT(255))";
+    let result = await queryDB(sql);
+    sql = `SELECT username, Score FROM BoardInfo ORDER BY Score DESC`;
+    result = await queryDB(sql);
+    console.log("leaderBoardShowing");
+    console.log(result);
+
+    res.json(result);
+  } catch (error) {
+    console.error('Error fetching leaderboard data:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 app.post('/checkLogin', async (req, res) => {
   let sql = `SELECT username, password FROM userInfo`;
   let result;
@@ -116,17 +133,7 @@ app.get('/readPost', async (req,res) => {
     console.log(result);
     return res.redirect("index.html");
   })
-//<---leader Board--->
-  app.post('/leaderBoarding',async(req,res) => {
-    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255),Score INT(9999))";
-    let result = await queryDB(sql);
-    sql = `SELECT username,Score FROM BoardInfo ORDER BY Score DESC`
-    result = await queryDB(sql);
-    result = Object.assign({},result)
-    console.log("leaderBoardShowong")
-    console.log(result);
-    res.json(result);
-  })
+
 
 
 

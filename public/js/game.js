@@ -2,6 +2,7 @@ window.onload = pageLoad;
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
+  showLeaderboard();
 }
 
 // function timeStart(){
@@ -214,4 +215,33 @@ function GameScript() {
   });
   // start the game
   requestAnimationFrame(loop);
+}
+//<---leaderboard here--->
+async function showLeaderboard() {
+ 
+      console.log('Fetching leaderboard data...');
+      // Fetch data from the server
+      let response = await fetch("/leaderBoarding");
+      let content = await response.json();
+        console.log(content);
+    
+      // Display data on the webpage
+      displayLeaderboard(content);
+      console.log("2");
+  
+  }
+
+function displayLeaderboard(data) {
+  // Access the DOM element where you want to display the leaderboard
+  let leaderboardContainer = document.getElementById("div_LeaderBoard");
+
+  // Clear existing content
+  leaderboardContainer.innerHTML = "";
+
+  // Iterate through the data and create HTML elements to display it
+  for (let entry of data) {
+      let entryElement = document.createElement("div");
+      entryElement.textContent = ` ${entry.username}  ${entry.Score}`;
+      leaderboardContainer.appendChild(entryElement);
+  }
 }

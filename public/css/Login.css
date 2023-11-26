@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: block;
+    position: sticky;
+    top: 0;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    background-color: rgb(255, 255, 255);
+
+    font-size: 150%;
+    font-family: 'Optima', sans-serif;
+
+    padding: 1% 0;
+}
+
+.header_Left {
+    grid-column: 1;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-left: 10%;
+}
+
+#header_Name {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Optima', sans-serif;
+}
+
+.button_Head {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+}
+
+.header_Center {
+    grid-column: 2;
+    text-align: center;
+    padding: 1%;
+}
+  
+.header_Right {
+    grid-column: 3;
+    text-align: center;
+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-right: 10%;
+}
+
+.button {
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    appearance: none;
+    background-color: inherit;
+
+    transition: transform 0.4s ease-in-out;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
+}
+
+#button_profile:hover {
+    
+}
+
+.header_button_img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+#legend_Login{
+    color: #ffffff;
+}
+
+.label_email{
+    color: #ffffff;
+}
+
+.label_password{
+    color: #ffffff;
+}
+#label_changetext{
+    color: #ffffff;
+}
+body {
+    background-color: #000000;
+}

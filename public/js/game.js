@@ -2,7 +2,7 @@ window.onload = pageLoad;
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
-  //showLeaderboard();
+  showLeaderboard();
  // checkCookie();
 }
 

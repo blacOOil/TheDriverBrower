@@ -10,6 +10,7 @@ const path = require('path');
 const mysql = require('mysql');
 const { userInfo } = require("os");
 const { constrainedMemory } = require("process");
+const { create } = require('domain');
 
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -51,18 +52,42 @@ const queryDB = (sql) => {
     })
 }
 //<---leader Board--->
+app.post("/updateboard", async (req, res) => {
+  console.log(req.body.tablename);
+  let createTableSQL =
+    'CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255), Score INT(255))';
+  await queryDB(createTableSQL);
 
+  const { username, score } = req.body;
 
+  con.query('SELECT * FROM BoardInfo WHERE username = ?', [username], (err, rows) => {
+    if (err) throw err;
 
-app.get('/updateboard',async(req,res) =>{
-  console.log("leaderBoardUpdating...")
-  
-    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo(username VARCHAR(255),Score INT(255))";
-    let result = await queryDB(sql);
-    sql = `INSERT INTO userInfo (username,Score) VALUES ("${req.body.username}","${req.body.score}")`;
-    result = await queryDB(sql);
-    console.log("leaderBoardUpdate Complete");
-})
+    if (rows.length > 0) {
+      con.query(
+        'UPDATE BoardInfo SET score = ? WHERE username = ? AND score < ?',
+        [score, username, score],
+        (updateErr, updateResult) => {
+          if (updateErr) throw updateErr;
+
+          console.log("Score updated successfully");
+        }
+      );
+    } else {
+      if (username && score !== null && score !== undefined) {
+        let insertSQL = `INSERT INTO BoardInfo (username, score ) VALUES (?, ?)`;
+        con.query(insertSQL, [username, score], (insertErr, insertResult) => {
+          if (insertErr) throw insertErr;
+
+          console.log("New user added successfully");
+        });
+      } else {
+        console.log("Username or score is null");
+      }
+    }
+  });
+});
+
 
 app.get('/leaderBoarding', async (req, res) => {
     console.log("pleaseee");

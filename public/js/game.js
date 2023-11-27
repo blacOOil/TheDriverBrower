@@ -228,34 +228,43 @@ async function showLeaderboard() {
  
  function displayLeaderboard(data) {
    // Access the DOM element where you want to display the leaderboard
-   let leaderboardContainer = document.getElementById("div_header_LeaderBoard");
+   let leaderboard_username = document.getElementById("grid_username");
+   let leaderboard_score = document.getElementById("grid_score");
+   let leaderboard_like = document.getElementById("grid_like");
  
    // Clear existing content
-   leaderboardContainer.innerHTML = "";
+   leaderboard_username.innerHTML = "";
+   leaderboard_score.innerHTML = "";
+   leaderboard_like.innerHTML = "";
  
-   let defaulboard = document.createElement("div");
-   defaulboard.textContent = ` username`;
-   leaderboardContainer.appendChild(defaulboard);
-   let defaulboard2 = document.createElement("div");
-   defaulboard2.textContent = ` score`;
-   leaderboardContainer.appendChild(defaulboard2);
+   let defaulboard = document.createElement("p");
+   defaulboard.textContent = ` Username`;
+   leaderboard_username.appendChild(defaulboard);
+   let defaulboard2 = document.createElement("p");
+   defaulboard2.textContent = ` Score`;
+   leaderboard_score.appendChild(defaulboard2);
+   let defaulboard3 = document.createElement("p");
+   defaulboard3.textContent = ` Liked`;
+   leaderboard_like.appendChild(defaulboard3);
    // Iterate through the data and create HTML elements to display it
    for (let entry of data) {
  
-       let username = document.createElement("div");
+       let username = document.createElement("p");
        username.textContent = ` ${entry.username}`;
-       let score = document.createElement("div");
+       let score = document.createElement("p");
        score.textContent = ` ${entry.Score}`;
+
  
        let likeButton = document.createElement("button");
-       likeButton.textContent = "Like" +"1";
+       likeButton.className = "block_like";
+       likeButton.textContent = "Like" + "1";
        likeButton.addEventListener("click", () => {
  
        });
  
-       leaderboardContainer.appendChild(username);
-       leaderboardContainer.appendChild(score);
-       leaderboardContainer.appendChild(likeButton);
+       leaderboard_username.appendChild(username);
+       leaderboard_score.appendChild(score);
+       leaderboard_like.appendChild(likeButton);
    }
  }
  

@@ -2,8 +2,44 @@ window.onload = pageLoad;
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
+  showLeaderboard();
+  checkCookie();
+
+  
+
+  
 }
 
+function checkCookie(){
+  var username = "";
+  if(getCookie("username") == false){
+    document.cookie = "username=Guest";
+   
+  }else{
+    var username = getCookie("username");
+    document.getElementsById()
+  }
+}
+
+function getCookie(name){
+  var value = "";
+  try{
+    value = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(name))
+    .split("=")[1];
+    return value;
+  }catch(err){
+    return false;
+  }
+}
+
+async function checker(){
+  if(getCookie("username")== "Guest"){
+    
+  }
+}
+//<====game section====>
 function pad(val) {
   var valString = val + "";
   if (valString.length < 2) {
@@ -178,3 +214,45 @@ function GameScript() {
   // start the game
   requestAnimationFrame(loop);
 }
+//<----------------leaderboard here-------------------------------------------->
+async function showLeaderboard() {
+ ""
+      console.log('Fetching leaderboard data...');
+      // Fetch data from the server
+      let response = await fetch("/leaderBoarding");
+      let content = await response.json();
+        console.log(content);
+    
+      // Display data on the webpage
+      displayLeaderboard(content);
+      console.log("2");
+  
+  }
+
+function displayLeaderboard(data) {
+  // Access the DOM element where you want to display the leaderboard
+  let leaderboardContainer = document.getElementById("div_header_LeaderBoard");
+
+  // Clear existing content
+  leaderboardContainer.innerHTML = "";
+
+  let defaulboard = document.createElement("div");
+  defaulboard.textContent = ` username`;
+  leaderboardContainer.appendChild(defaulboard);
+  let defaulboard2 = document.createElement("div");
+  defaulboard2.textContent = ` score`;
+  leaderboardContainer.appendChild(defaulboard2);
+  // Iterate through the data and create HTML elements to display it
+  for (let entry of data) {
+
+      let username = document.createElement("div");
+      username.textContent = ` ${entry.username}`;
+      let score = document.createElement("div");
+      score.textContent = ` ${entry.Score}`;
+
+      leaderboardContainer.appendChild(username);
+      leaderboardContainer.appendChild(score);
+  }
+}
+
+//<----Get HightScore--->

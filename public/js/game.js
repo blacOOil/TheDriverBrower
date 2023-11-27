@@ -54,7 +54,7 @@ function Reset() {
 }
 
 function GameScript() {
-  var canvas = document.getElementById('game');
+  var canvas = document.getElementById('canvas_game');
   var context = canvas.getContext('2d');
   var grid = 16;
   var count = 0;

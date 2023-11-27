@@ -213,14 +213,16 @@ fieldset {
     color: #E43F5A;
 }
 
+#canvas_game {
+    aspect-ratio: 3/2;
+}
+
 canvas {
     border: 2px solid white;
     background-color: #424242;
 
     margin-top: 25px;
     margin-bottom: 25px;
-
-    aspect-ratio: 3/2;
 }
 
 #p1 {
@@ -242,6 +244,8 @@ canvas {
     justify-content: center;
     align-items: center;
     justify-items: center;
+
+    margin: 0% 20%;
 }
 
 #label_lose {

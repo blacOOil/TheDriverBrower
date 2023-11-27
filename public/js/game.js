@@ -224,7 +224,6 @@ async function showLeaderboard() {
       // Display data on the webpage
       displayLeaderboard(content);
       console.log("2");
-  
   }
 
 function displayLeaderboard(data) {

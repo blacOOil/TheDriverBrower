@@ -3,15 +3,14 @@ window.onload = pageLoad;
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
   showLeaderboard();
- // checkCookie();
+  checkCookie();
 }
 
 function checkCookie(){
   var username = "";
   if(getCookie("username") == false){
     document.cookie = "usernanme=Guest";
-    document.cookie = "password=0";
-    
+   
   }
 }
 

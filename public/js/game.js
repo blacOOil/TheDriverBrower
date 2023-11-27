@@ -3,21 +3,14 @@ window.onload = pageLoad;
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
   showLeaderboard();
-  checkCookie();
-
-  
-
-  
+  checkCookie(); 
+  checker();
 }
 
 function checkCookie(){
   var username = "";
   if(getCookie("username") == false){
     document.cookie = "username=Guest";
-   
-  }else{
-    var username = getCookie("username");
-    document.getElementsById()
   }
 }
 
@@ -34,9 +27,14 @@ function getCookie(name){
   }
 }
 
-async function checker(){
-  if(getCookie("username")== "Guest"){
-    
+function checker() {
+  if (getCookie("username") == "Guest") {
+    // Do something if the username is Guest
+  } else {
+    var username = getCookie("username");
+    // Use getElementById (without 's') to get the element
+    document.getElementById("user_name").innerHTML = username;
+    CollectScore();
   }
 }
 //<====game section====>

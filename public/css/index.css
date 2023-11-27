@@ -331,21 +331,24 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+
+    margin-bottom: 20px;
 }
 
 #textarea_Comment {
+    font-size: 150%;
     background-color: rgb(0, 0, 0);
     color: rgb(255, 255, 255);
     border-radius: 10px;
     border: 3px solid rgb(255, 255, 255);
 
     width: 100%;
-    max-width: 1800px;
-    height: 150px;
+    max-width: 1300px;
+    height: 100px;
 }
 
 .button_post {
-    font-size: 200%;
+    font-size: 150%;
     border-radius: 10px;
     border: 3px solid rgb(255, 255, 255);
 
@@ -358,6 +361,13 @@ canvas {
     color: white;
     background-color: green;
 }
+
+#div_post {
+    width: 1640px;
+    height: 200px;
+    overflow: auto;
+}
+
 .p_post {
     background-color: rgb(53, 53, 53);
     color: rgb(255, 255, 255);
@@ -367,9 +377,11 @@ canvas {
     font-size: 150%;
 
     width: 100%;
-    max-width: 1800px;
-    height: 200px;
-    overflow: auto;
+    max-width: 1640px;
+    height: 100px;
+    /* overflow: auto; */
+
+    margin-bottom: 15px;
 }
 /* Contact */
 

@@ -51,6 +51,9 @@ const queryDB = (sql) => {
     })
 }
 //<---leader Board--->
+
+
+
 app.get('/updateboard',async(req,res) =>{
   console.log("leaderBoardUpdating...")
   
@@ -78,7 +81,12 @@ app.get('/leaderBoarding', async (req, res) => {
   }
 });
 //<====like section===>
-
+app.post("/likeToUser",async(req,res) => {
+  let sql = "CREATE TABLE IF NOT EXISTS UserLike (username VARCHAR(255),Like INT(255))";
+  let result = await queryDB(sql);
+  sql = `INSERT INTO userInfo (username,  Like) VALUES ("${req.body.username}","${req.body.Like}")`;
+  result = await queryDB(sql);
+})
 
 //<====checklogin session===>
 app.post('/checkLogin', async (req, res) => {

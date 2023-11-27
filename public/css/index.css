@@ -9,11 +9,12 @@ html {
 }
 
 body {
-    background-color: #666666;
+    background-color: #000000;
     background-image: url('https://www.shutterstock.com/image-illustration/dark-hall-bright-white-neon-600nw-1806454282.jpg');
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;}
+    background-repeat: no-repeat;
+}
 
 header {
     display: block;

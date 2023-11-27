@@ -1,7 +1,7 @@
 
 window.onload = pageLoad;
 
-var max = 0;
+
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
   showLeaderboard();

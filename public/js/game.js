@@ -151,6 +151,7 @@ function GameScript() {
         if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
           if (score > max) {
             max = score;
+            sendHighScore(score);
           }
           snake.x = 160;
           snake.y = 160;
@@ -218,9 +219,12 @@ function GameScript() {
   requestAnimationFrame(loop);
 }
 //<-----------Get HightScore------------------->
-function sendHighScore(score) {
+async function sendHighScore(score) {
   // Send the high score to the server
-  fetch("/sendHighScore", {
+ 
+  let response =
+  await fetch("/updateboard", {
+    
     method: "POST",
     headers: {
       Accept: "application/json",
@@ -231,37 +235,10 @@ function sendHighScore(score) {
       score: score,
     }),
   })
-  .then(response => response.json())
-  .then(data => {
-    console.log("High score sent successfully:", data);
-  })
-  .catch(error => {
-    console.error("Error sending high score:", error);
-  });
 }
-function getHighScore() {
-  // Retrieve the high score from the server
-  fetch("/getHighScore", {
-    method: "POST",
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username: getCookie("username"),
-    }),
-  })
-  .then(response => response.json())
-  .then(data => {
-    console.log("High score retrieved successfully:", data);
-    max = data.highScore; // Update the max variable with the retrieved high score
-  })
-  .catch(error => {
-    console.error("Error retrieving high score:", error);
-  });
-}
+
 //<----------------leaderboard here-------------------------------------------->
-async function showLeaderboard() {
+async function showLeaderboard(score) {
   ""
        console.log('Fetching leaderboard data...');
        // Fetch data from the server

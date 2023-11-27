@@ -98,18 +98,49 @@ header {
 
 #legend_Login{
     color: #ffffff;
+    font-size: 200%;
+
 }
 
 .label_email{
     color: #ffffff;
+    font-size: 200%;
+
 }
 
 .label_password{
     color: #ffffff;
+    font-size: 200%;
+
 }
 #label_changetext{
     color: #ffffff;
+    font-size: 200%;
+
 }
 body {
     background-color: #000000;
+}
+
+.button_regis_login {
+        background: #000000;
+        background-image: -webkit-linear-gradient(top, #000000, #000000);
+        background-image: -moz-linear-gradient(top, #000000, #000000);
+        background-image: -ms-linear-gradient(top, #000000, #000000);
+        background-image: -o-linear-gradient(top, #000000, #000000);
+        background-image: linear-gradient(to bottom, #000000, #000000);
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+        border: solid #ffffff 2px;
+        text-decoration: none;
+    }
+
+
+.button_regis_login:hover {
+    text-decoration: none;
 }

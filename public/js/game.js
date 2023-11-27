@@ -52,7 +52,7 @@ function Reset() {
 }
 
 function GameScript() {
-  var canvas = document.getElementById('game');
+  var canvas = document.getElementById('canvas_game');
   var context = canvas.getContext('2d');
   var grid = 16;
   var count = 0;
@@ -214,52 +214,61 @@ function GameScript() {
 }
 //<----------------leaderboard here-------------------------------------------->
 async function showLeaderboard() {
- ""
-      console.log('Fetching leaderboard data...');
-      // Fetch data from the server
-      let response = await fetch("/leaderBoarding");
-      let content = await response.json();
-        console.log(content);
-    
-      // Display data on the webpage
-      displayLeaderboard(content);
-      console.log("2");
-  }
+  ""
+       console.log('Fetching leaderboard data...');
+       // Fetch data from the server
+       let response = await fetch("/leaderBoarding");
+       let content = await response.json();
+         console.log(content);
+     
+       // Display data on the webpage
+       displayLeaderboard(content);
+       console.log("2");
+   }
+ 
+ function displayLeaderboard(data) {
+   // Access the DOM element where you want to display the leaderboard
+   let leaderboard_username = document.getElementById("grid_username");
+   let leaderboard_score = document.getElementById("grid_score");
+   let leaderboard_like = document.getElementById("grid_like");
+ 
+   // Clear existing content
+   leaderboard_username.innerHTML = "";
+   leaderboard_score.innerHTML = "";
+   leaderboard_like.innerHTML = "";
+ 
+   let defaulboard = document.createElement("p");
+   defaulboard.textContent = ` Username`;
+   leaderboard_username.appendChild(defaulboard);
+   let defaulboard2 = document.createElement("p");
+   defaulboard2.textContent = ` Score`;
+   leaderboard_score.appendChild(defaulboard2);
+   let defaulboard3 = document.createElement("p");
+   defaulboard3.textContent = ` Liked`;
+   leaderboard_like.appendChild(defaulboard3);
+   // Iterate through the data and create HTML elements to display it
+   for (let entry of data) {
+ 
+       let username = document.createElement("p");
+       username.textContent = ` ${entry.username}`;
+       let score = document.createElement("p");
+       score.textContent = ` ${entry.Score}`;
 
-function displayLeaderboard(data) {
-  // Access the DOM element where you want to display the leaderboard
-  let leaderboardContainer = document.getElementById("div_header_LeaderBoard");
-
-  // Clear existing content
-  leaderboardContainer.innerHTML = "";
-
-  let defaulboard = document.createElement("div");
-  defaulboard.textContent = ` username`;
-  leaderboardContainer.appendChild(defaulboard);
-  let defaulboard2 = document.createElement("div");
-  defaulboard2.textContent = ` score`;
-  leaderboardContainer.appendChild(defaulboard2);
-  // Iterate through the data and create HTML elements to display it
-  for (let entry of data) {
-
-      let username = document.createElement("div");
-      username.textContent = ` ${entry.username}`;
-      let score = document.createElement("div");
-      score.textContent = ` ${entry.Score}`;
-
-      let likeButton = document.createElement("button");
-      likeButton.textContent = "Like" +"1";
-      likeButton.addEventListener("click", () => {
-
-      });
-
-      leaderboardContainer.appendChild(username);
-      leaderboardContainer.appendChild(score);
-      leaderboardContainer.appendChild(likeButton);
-  }
-}
-
-//<----Get HightScore--->
-function CollectScore(){
-
-}
+ 
+       let likeButton = document.createElement("button");
+       likeButton.className = "block_like";
+       likeButton.textContent = "Like" + "1";
+       likeButton.addEventListener("click", () => {
+ 
+       });
+ 
+       leaderboard_username.appendChild(username);
+       leaderboard_score.appendChild(score);
+       leaderboard_like.appendChild(likeButton);
+   }
+ }
+ 
+ //<----Get HightScore--->
+ function CollectScore(){
+ 
+ }

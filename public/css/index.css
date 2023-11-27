@@ -213,14 +213,16 @@ fieldset {
     color: #E43F5A;
 }
 
+#canvas_game {
+    aspect-ratio: 3/2;
+}
+
 canvas {
     border: 2px solid white;
     background-color: #424242;
 
     margin-top: 25px;
     margin-bottom: 25px;
-
-    aspect-ratio: 3/2;
 }
 
 #p1 {
@@ -242,6 +244,8 @@ canvas {
     justify-content: center;
     align-items: center;
     justify-items: center;
+
+    margin: 0% 20%;
 }
 
 #label_lose {
@@ -268,7 +272,7 @@ canvas {
 
 #div_header_LeaderBoard {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 45% 45% 10%;
     align-content: center;
     justify-content: center;
     align-items: center;
@@ -281,28 +285,92 @@ canvas {
     font-weight: bolder;
 }
 
-#header_LeaderBoard {
-    
+#grid_username {
+    grid-column: 1;
+    grid-row: 1;
 }
+
+#grid_score {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+#grid_like {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.block_like {
+    display: block;
+    cursor: pointer;
+
+    font-size: 16px;
+    color: black;
+    background-color: white;
+    border: none;
+    margin: 6px 0px 5px 8px;
+}
+
+.block_like:hover {
+    color: #ffffff;
+    background-color: rgb(252, 71, 71);
+}
+
 
 /* Comment */
 
 #legend_Comment {
-    font-size: 200%;
+    font-size: 250%;
     font-weight: bold;
+    text-align: left;
     padding: 0% 3% 0% 3%;
     
 }
 
-#div_Skill_project {
-    font-size: 150%;
-
-    display: grid;
-    grid-template-columns: auto auto;
-
-    line-height: 1.5;
+#div_Comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
+#textarea_Comment {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    width: 100%;
+    max-width: 1800px;
+    height: 150px;
+}
+
+.button_post {
+    font-size: 200%;
+    border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    color: white;
+    background-color: black;
+}
+
+.button_post:hover {
+    border-radius: 18px;
+    color: white;
+    background-color: green;
+}
+.p_post {
+    background-color: rgb(53, 53, 53);
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 3px solid rgb(255, 255, 255);
+
+    font-size: 150%;
+
+    width: 100%;
+    max-width: 1800px;
+    height: 200px;
+    overflow: auto;
+}
 /* Contact */
 
 #legend_Contact {

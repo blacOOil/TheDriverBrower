@@ -5,6 +5,8 @@ function pageLoad() {
   showLeaderboard();
   checkCookie(); 
   checker();
+
+  document.getElementById("button_post").onclick = getData;
 }
 
 function checkCookie(){
@@ -212,6 +214,11 @@ function GameScript() {
   // start the game
   requestAnimationFrame(loop);
 }
+//<-----------Get HightScore------------------->
+ function CollectScore(){
+ 
+ }
+
 //<----------------leaderboard here-------------------------------------------->
 async function showLeaderboard() {
   ""
@@ -267,8 +274,53 @@ async function showLeaderboard() {
        leaderboard_like.appendChild(likeButton);
    }
  }
+ //<=====like system====>
+
+ //<=====comment section====>
+
+
+ async function getData() {
+	var msg = document.getElementById("textarea_Comment").value;
+	document.getElementById("textarea_Comment").value = "";
+	await writePost(msg);
+	await readPost();
+  }
+ async function readPost() {
+	let response = await fetch("/readPost");
+	let content = await response.json();
+	showPost(content);
+  }
+  async function writePost(msg) {
+    let response = await fetch("/writePost", {
+      method: "POST",
+      headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      user: getCookie("username"),
+      message: msg,
+      }),
+    });
+    }
+
+    function showPost(data) {
+      var keys = Object.keys(data);
+      console.log(keys);
+      var divTag = document.getElementById("comment_container");
+      divTag.innerHTML = "";
+      for (var i = keys.length - 1; i >= 0; i--) {
+        var temp = document.createElement("div");
+        temp.className = "newsfeed";
+        divTag.appendChild(temp);
+        
+        var temp1 = document.createElement("div");
+        temp1.className = "postuser";
+        temp1.innerHTML = data[keys[i]]["username"] + ": " + data[keys[i]]["post"]; // Change this line
+        temp.appendChild(temp1);
+    
+       
+      }
+    }
+    
  
- //<----Get HightScore--->
- function CollectScore(){
- 
- }

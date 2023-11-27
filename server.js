@@ -51,6 +51,9 @@ const queryDB = (sql) => {
     })
 }
 //<---leader Board--->
+
+
+
 app.get('/updateboard',async(req,res) =>{
   console.log("leaderBoardUpdating...")
   
@@ -59,8 +62,6 @@ app.get('/updateboard',async(req,res) =>{
     sql = `INSERT INTO userInfo (username,Score) VALUES ("${req.body.username}","${req.body.score}")`;
     result = await queryDB(sql);
     console.log("leaderBoardUpdate Complete");
-   
-  
 })
 
 app.get('/leaderBoarding', async (req, res) => {
@@ -79,6 +80,15 @@ app.get('/leaderBoarding', async (req, res) => {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+//<====like section===>
+app.post("/likeToUser",async(req,res) => {
+  let sql = "CREATE TABLE IF NOT EXISTS UserLike (username VARCHAR(255),Like INT(255))";
+  let result = await queryDB(sql);
+  sql = `INSERT INTO userInfo (username,  Like) VALUES ("${req.body.username}","${req.body.Like}")`;
+  result = await queryDB(sql);
+})
+
+//<====checklogin session===>
 app.post('/checkLogin', async (req, res) => {
   let sql = `SELECT username, password FROM userInfo`;
   let result;
@@ -127,6 +137,7 @@ app.get('/logout', (req,res) => {
   res.cookie('username', "Guest");
     return res.redirect('index.html');
 })
+//<====post====>
 app.get('/readPost', async (req,res) => {
     let sql = "CREATE TABLE IF NOT EXISTS PostInfo ( username VARCHAR(255), post VARCHAR(500))";
     let result = await queryDB(sql)

@@ -1,11 +1,16 @@
+
 window.onload = pageLoad;
 
+var max = 0;
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
   showLeaderboard();
   checkCookie(); 
   checker();
+  
+  document.getElementById("button_post").onclick = getData;
 }
+
 
 function checkCookie(){
   var username = "";
@@ -34,7 +39,7 @@ function checker() {
     var username = getCookie("username");
     // Use getElementById (without 's') to get the element
     document.getElementById("user_name").innerHTML = username;
-    CollectScore();
+   // CollectScore();
   }
 }
 //<====game section====>
@@ -212,6 +217,49 @@ function GameScript() {
   // start the game
   requestAnimationFrame(loop);
 }
+//<-----------Get HightScore------------------->
+function sendHighScore(score) {
+  // Send the high score to the server
+  fetch("/sendHighScore", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: getCookie("username"),
+      score: score,
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("High score sent successfully:", data);
+  })
+  .catch(error => {
+    console.error("Error sending high score:", error);
+  });
+}
+function getHighScore() {
+  // Retrieve the high score from the server
+  fetch("/getHighScore", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      username: getCookie("username"),
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("High score retrieved successfully:", data);
+    max = data.highScore; // Update the max variable with the retrieved high score
+  })
+  .catch(error => {
+    console.error("Error retrieving high score:", error);
+  });
+}
 //<----------------leaderboard here-------------------------------------------->
 async function showLeaderboard() {
   ""
@@ -267,8 +315,54 @@ async function showLeaderboard() {
        leaderboard_like.appendChild(likeButton);
    }
  }
+ //<=====like system====>
  
- //<----Get HightScore--->
- function CollectScore(){
+
+ //<=====comment section====>
+
+
+ async function getData() {
+	var msg = document.getElementById("textarea_Comment").value;
+	document.getElementById("textarea_Comment").value = "";
+	await writePost(msg);
+	await readPost();
+  }
+ async function readPost() {
+	let response = await fetch("/readPost");
+	let content = await response.json();
+	showPost(content);
+  }
+  async function writePost(msg) {
+    let response = await fetch("/writePost", {
+      method: "POST",
+      headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+      user: getCookie("username"),
+      message: msg,
+      }),
+    });
+    }
+
+    function showPost(data) {
+      var keys = Object.keys(data);
+      console.log(keys);
+      var divTag = document.getElementById("comment_container");
+      divTag.innerHTML = "";
+      for (var i = keys.length - 1; i >= 0; i--) {
+        var temp = document.createElement("div");
+        temp.className = "newsfeed";
+        divTag.appendChild(temp);
+        
+        var temp1 = document.createElement("div");
+        temp1.className = "postuser";
+        temp1.innerHTML = data[keys[i]]["username"] + ": " + data[keys[i]]["post"]; // Change this line
+        temp.appendChild(temp1);
+    
+       
+      }
+    }
+    
  
- }

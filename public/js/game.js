@@ -1,6 +1,4 @@
-
 window.onload = pageLoad;
-
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
@@ -10,7 +8,6 @@ function pageLoad() {
   
   document.getElementById("button_post").onclick = getData;
 }
-
 
 function checkCookie(){
   var username = "";
@@ -42,19 +39,8 @@ function checker() {
    // CollectScore();
   }
 }
-//<====game section====>
-function pad(val) {
-  var valString = val + "";
-  if (valString.length < 2) {
-    return "0" + valString;
-  } else {
-    return valString;
-  }
-}
 
-function Reset() {
-  loop();
-}
+//<====game section====>
 
 function GameScript() {
   var canvas = document.getElementById('canvas_game');

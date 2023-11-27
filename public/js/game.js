@@ -225,16 +225,27 @@ async function showLeaderboard() {
 
 function displayLeaderboard(data) {
   // Access the DOM element where you want to display the leaderboard
-  let leaderboardContainer = document.getElementById("div_LeaderBoard");
+  let leaderboardContainer = document.getElementById("div_header_LeaderBoard");
 
   // Clear existing content
   leaderboardContainer.innerHTML = "";
 
+  let defaulboard = document.createElement("div");
+  defaulboard.textContent = ` username`;
+  leaderboardContainer.appendChild(defaulboard);
+  let defaulboard2 = document.createElement("div");
+  defaulboard2.textContent = ` score`;
+  leaderboardContainer.appendChild(defaulboard2);
   // Iterate through the data and create HTML elements to display it
   for (let entry of data) {
-      let entryElement = document.createElement("div");
-      entryElement.textContent = ` ${entry.username}  ${entry.Score}`;
-      leaderboardContainer.appendChild(entryElement);
+
+      let username = document.createElement("div");
+      username.textContent = ` ${entry.username}`;
+      let score = document.createElement("div");
+      score.textContent = ` ${entry.Score}`;
+
+      leaderboardContainer.appendChild(username);
+      leaderboardContainer.appendChild(score);
   }
 }
 

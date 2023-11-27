@@ -349,17 +349,18 @@ async function showLeaderboard() {
     function showPost(data) {
       var keys = Object.keys(data);
       console.log(keys);
-      var divTag = document.getElementById("comment_container");
+      var divTag = document.getElementById("div_post");
       divTag.innerHTML = "";
       for (var i = keys.length - 1; i >= 0; i--) {
-        var temp = document.createElement("div");
-        temp.className = "newsfeed";
+        var temp = document.createElement("p");
+        temp.className = "p_post";
         divTag.appendChild(temp);
+        temp.innerHTML = data[keys[i]]["username"] + ": " + data[keys[i]]["post"]; // Change this line
         
-        var temp1 = document.createElement("div");
-        temp1.className = "postuser";
-        temp1.innerHTML = data[keys[i]]["username"] + ": " + data[keys[i]]["post"]; // Change this line
-        temp.appendChild(temp1);
+        // var temp1 = document.createElement("p");
+        // temp1.className = "postuser";
+        // temp1.innerHTML = data[keys[i]]["username"] + ": " + data[keys[i]]["post"]; // Change this line
+        // temp.appendChild(temp1);
     
        
       }

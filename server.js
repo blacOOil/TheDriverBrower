@@ -51,6 +51,18 @@ const queryDB = (sql) => {
     })
 }
 //<---leader Board--->
+app.get('/updateboard',async(req,res) =>{
+  console.log("leaderBoardUpdating...")
+  
+    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo(username VARCHAR(255),Score INT(255))";
+    let result = await queryDB(sql);
+    sql = `INSERT INTO userInfo (username,Score) VALUES ("${req.body.username}","${req.body.score}")`;
+    result = await queryDB(sql);
+    console.log("leaderBoardUpdate Complete");
+   
+  
+})
+
 app.get('/leaderBoarding', async (req, res) => {
     console.log("pleaseee");
   try {
@@ -101,7 +113,7 @@ app.post('/checkLogin', async (req, res) => {
 
 
 app.post('/regisDB', async (req,res) => {
-    let now_date = new Date().toISOString().slice(0, 19).replace('T', ' ');
+  
     let sql = 
             "CREATE TABLE IF NOT EXISTS userInfo (id INT AUTO_INCREMENT PRIMARY KEY,  username VARCHAR(255),password VARCHAR(100))";
     let result = await queryDB(sql);
@@ -112,9 +124,8 @@ app.post('/regisDB', async (req,res) => {
 })
 
 app.get('/logout', (req,res) => {
-    res.clearCookie('username');
-    res.clearCookie('img');
-    return res.redirect('login.html');
+  res.cookie('username', "Guest");
+    return res.redirect('index.html');
 })
 app.get('/readPost', async (req,res) => {
     let sql = "CREATE TABLE IF NOT EXISTS PostInfo ( username VARCHAR(255), post VARCHAR(500))";

@@ -4,13 +4,20 @@ function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
   showLeaderboard();
   checkCookie();
+
+  
+
+  
 }
 
 function checkCookie(){
   var username = "";
   if(getCookie("username") == false){
-    document.cookie = "usernanme=Guest";
+    document.cookie = "username=Guest";
    
+  }else{
+    var username = getCookie("username");
+    document.getElementsById()
   }
 }
 

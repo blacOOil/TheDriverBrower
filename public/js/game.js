@@ -34,6 +34,7 @@ function checker() {
     var username = getCookie("username");
     // Use getElementById (without 's') to get the element
     document.getElementById("user_name").innerHTML = username;
+    CollectScore();
   }
 }
 //<====game section====>
@@ -247,9 +248,19 @@ function displayLeaderboard(data) {
       let score = document.createElement("div");
       score.textContent = ` ${entry.Score}`;
 
+      let likeButton = document.createElement("button");
+      likeButton.textContent = "Like" +"1";
+      likeButton.addEventListener("click", () => {
+
+      });
+
       leaderboardContainer.appendChild(username);
       leaderboardContainer.appendChild(score);
+      leaderboardContainer.appendChild(likeButton);
   }
 }
 
 //<----Get HightScore--->
+function CollectScore(){
+
+}

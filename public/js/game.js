@@ -2,44 +2,44 @@ window.onload = pageLoad;
 
 function pageLoad() {
   document.getElementById('playgame').onclick = GameScript;
+  showLeaderboard();
+  checkCookie();
+
+  
+
+  
 }
 
-// function timeStart(){
-// 	var TIMER_TICK = 1000;
-// 	var timer = null ;
-// 	var min = 0.05 ; // 0.5 minute
-// 	var second = min * 60 ; 
-// 	var x = document.getElementById("clock") ;
-// 	//setting timer using setInterval function
-// 	timer = setInterval(timeCount,TIMER_TICK);
+function checkCookie(){
+  var username = "";
+  if(getCookie("username") == false){
+    document.cookie = "username=Guest";
+   
+  }else{
+    var username = getCookie("username");
+    document.getElementsById()
+  }
+}
 
-// 	function timeCount(){
-// 		var getAllElement = 0;
-// 		x.innerHTML = second;
-// 		var xyz = document.getElementById('label_lose');
+function getCookie(name){
+  var value = "";
+  try{
+    value = document.cookie
+    .split("; ")
+    .find((row) => row.startsWith(name))
+    .split("=")[1];
+    return value;
+  }catch(err){
+    return false;
+  }
+}
 
-// 		if (xyz.length === getAllElement) {
-// 			alert("You win.");
-// 			clearInterval(timer);
-// 			timer = null;
-// 			clearScreen();
-// 		}
-
-// 		if(second === getAllElement) {
-// 			alert("Game over.");
-// 			alert("You lost.");
-// 			clearInterval(timer);
-// 			timer = null;
-// 			clearScreen();
-// 		} else {
-// 		  second--;
-// 		}
-// 			// จัดการเกี่ยวกับเวลา เช่น ถ้ายังมีกล่องเหลืออยู่ เวลาจะลดลงเรื่อยๆ 
-// 			// ถ้าไม่มีกล่องเหลือแล้ว และเวลายังเหลืออยู่จะขึ้นว่า You win!
-// 			// ถ้าเวลาหมด แต่ยังมีกล่องเหลืออยู่ จะบอกว่า Game over และทำการ clear screen
-// 	}
-// }
-
+async function checker(){
+  if(getCookie("username")== "Guest"){
+    
+  }
+}
+//<====game section====>
 function pad(val) {
   var valString = val + "";
   if (valString.length < 2) {
@@ -137,8 +137,8 @@ function GameScript() {
         score += 1;
         document.getElementById('score').innerHTML = '&nbsp;' + score;
         // canvas is 400x400 which is 25x25 grids 
-        food.x = getRandomInt(0, 75) * grid;
-        food.y = getRandomInt(0, 35) * grid;
+        food.x = getRandomInt(0, canvas.width/16) * grid;
+        food.y = getRandomInt(0, canvas.height/16) * grid;
       }
 
       // check collision with all cells after this one (modified bubble sort)
@@ -156,21 +156,20 @@ function GameScript() {
           snake.dx = grid;
           snake.dy = 0;
           score = 0;
-          food.x = getRandomInt(0, 75) * grid;
-          food.y = getRandomInt(0, 35) * grid;
+          food.x = getRandomInt(0, canvas.width/16) * grid;
+          food.y = getRandomInt(0, canvas.height/16) * grid;
           document.getElementById('high').innerHTML = '&nbsp;' + max;
 
-          var totalSeconds = 3;
-          var timeover = 0;
+          var totalSeconds = 3; //3 second before vanished.
           var losegame = document.getElementById('label_lose');
 
           if (losegame.innerHTML === "") {
-            losegame.innerHTML = "You Lose,Try again later";
+            losegame.innerHTML = "You Lose!,Try again later";
           } else {
             losegame.innerHTML = "";
           }
 
-          if (losegame.innerHTML = "You Lose,Try again later") {
+          if (losegame.innerHTML = "You Lose!,Try again later") {
             setInterval(setTime, 1000);
             function setTime() {
               totalSeconds--;
@@ -215,3 +214,45 @@ function GameScript() {
   // start the game
   requestAnimationFrame(loop);
 }
+//<----------------leaderboard here-------------------------------------------->
+async function showLeaderboard() {
+ ""
+      console.log('Fetching leaderboard data...');
+      // Fetch data from the server
+      let response = await fetch("/leaderBoarding");
+      let content = await response.json();
+        console.log(content);
+    
+      // Display data on the webpage
+      displayLeaderboard(content);
+      console.log("2");
+  
+  }
+
+function displayLeaderboard(data) {
+  // Access the DOM element where you want to display the leaderboard
+  let leaderboardContainer = document.getElementById("div_header_LeaderBoard");
+
+  // Clear existing content
+  leaderboardContainer.innerHTML = "";
+
+  let defaulboard = document.createElement("div");
+  defaulboard.textContent = ` username`;
+  leaderboardContainer.appendChild(defaulboard);
+  let defaulboard2 = document.createElement("div");
+  defaulboard2.textContent = ` score`;
+  leaderboardContainer.appendChild(defaulboard2);
+  // Iterate through the data and create HTML elements to display it
+  for (let entry of data) {
+
+      let username = document.createElement("div");
+      username.textContent = ` ${entry.username}`;
+      let score = document.createElement("div");
+      score.textContent = ` ${entry.Score}`;
+
+      leaderboardContainer.appendChild(username);
+      leaderboardContainer.appendChild(score);
+  }
+}
+
+//<----Get HightScore--->

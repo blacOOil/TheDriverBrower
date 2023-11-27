@@ -20,7 +20,23 @@
                 <a href="./index.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Refresh"/></button></a>
                 <a href="#section_Game"> <button class="button"><img class="header_button_img" src="img/Icon/button_game.png" alt="button_Game"/></button></a>
                 <a href="./Leaderboard.html"> <button class="button"><img class="header_button_img" src="img/Icon/button_leaderboard.png" alt="button_Leaderboard"/></button></a>
-                <a href="./Login.html"> <button class="button" id="button_profile"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Login"/></button></a>
+                <!-- <a> <button class="button" id="button_profile"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Login"/></button></a> -->
+                <li class="header_li">
+                    <a href="./Login.html"><button class="button"><img class="header_button_img" src="img/Icon/button_login.png" alt="button_Login"/></button></a>
+                    <ul class="header_ul">
+                        <li  class="header_li">
+                            <a class="sub_item">
+                                <p id="user_name">Hello, ...</p>
+                            </a>
+                        </li>
+                        <li  class="header_li">
+                            <a href="/logout" class="sub_item">
+                                <!-- <img class="header_button_profile_img" src="img/Icon/button_login.png" alt="button_Login"/> -->
+                                <p>Logout</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </div>
         </div>
     </header>
@@ -32,21 +48,22 @@
         <div id="Game">
             <p id="p1">Score:<span id="score"></span></p>
             <p id="p2">High Score:<span id="high"></span></p>
+            <canvas width="1200" height="560" id="game"></canvas>
             <p id="pgame">
+                <input id="playgame" type="button" value="Play">
                 <label id="label_lose">  </label>
-                <canvas width="1200" height="560" id="game"></canvas>
             </p>
-            <br>
-            <input id="playgame" type="button" value="Play">
         </div>
 
         <!-- LeaderBoard & Comment -->
         <section id="section_LeaderBoard"></section>
         <fieldset id="fieldset_LeaderBoard">
             <legend id="legend_LeaderBoard"> LeaderBoard </legend>
-            <div id="div_LeaderBoard">
-                
+            <div id="div_header_LeaderBoard">
+               <p>username</p>
+               <p>score</p>
             </div>
+
         </fieldset>
     </fieldset>
 

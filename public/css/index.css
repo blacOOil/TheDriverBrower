@@ -9,12 +9,11 @@ html {
 }
 
 body {
-    background-color: #000000;
+    background-color: #666666;
     background-image: url('https://www.shutterstock.com/image-illustration/dark-hall-bright-white-neon-600nw-1806454282.jpg');
     background-position: center;
     background-size: cover;
-    background-repeat: no-repeat;
-}
+    background-repeat: no-repeat;}
 
 header {
     display: block;
@@ -25,7 +24,7 @@ header {
 .header {
     display: grid;
     grid-template-columns: 20% 60% 20%;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
 
     font-size: 150%;
     font-family: 'Optima', sans-serif;
@@ -95,12 +94,71 @@ header {
     border-radius: 12px;
 }
 
-#button_profile:hover {
+.header_li {
+    list-style-type: none;
+    position: relative;
+}
+
+.header_ul {
+    display: flex;
+    align-items: center;
+}
+
+.header_li .header_ul {
+    width: 250px;
+    border-radius: 12px;
+    top: 50px;
+    right: 3px;
+
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: white;
+    align-items: center;
+    transition: all 0.5s ease;
     
+    box-shadow: 0px 0px 100px rgba(20, 18, 18, 0.25);
+}
+
+.header_li:hover > .header_ul,
+.header_li .header_ul:hover {
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+}
+
+.sub_item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    padding: 10px 10px;
+}
+
+.sub_item:hover {
+    background-color: rgba(232, 232, 232, 0.4);
+}
+
+.sub_item p {
+    font-size: 80%;
+    font-weight: 500;
+    color: #747474;
+    margin: 10px 0px;
+}
+
+.sub_item:hover p {
+    color: #000000;
+    cursor: pointer;
 }
 
 .header_button_img {
     width: 100%;
+    border-radius: 12px;
+}
+
+.header_button_profile_img {
+    width: 10%;
     border-radius: 12px;
 }
 
@@ -135,20 +193,19 @@ fieldset {
 }
 
 #legend_Game {
-    font-size: 550%;
+    font-size: 250%;
     font-weight: bold;
     text-align: left;
     padding: 0% 3% 0% 3%;
-    
-    
 }
 
 #Game {
     grid-column: 1;
     text-align: center;
+
     line-height: 1.5;
-    font-size: 200%;
-    
+
+    font-size: 150%;
 }
 
 #score {
@@ -156,48 +213,49 @@ fieldset {
 }
 
 #high {
-    color: #ff002b;
+    color: #E43F5A;
 }
 
 canvas {
     border: 2px solid white;
     background-color: #424242;
+
+    margin-top: 25px;
+    margin-bottom: 25px;
+
+    aspect-ratio: 3/2;
 }
 
 #p1 {
-    color: #f8f7fd;
+    color: #CCC9DC;
     font-family: cursive;
     font-size: x-large;
-    font-size: 250%;
-
 }
 
 #p2 {
-    color: #f8f7fd;
+    color: #CCC9DC;
     font-family: cursive;
     font-size: x-large;
-    font-size: 250%;
-
 }
 
 #pgame {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-content: center;
+    justify-content: center;
     align-items: center;
-
-    margin-top: 25px;
+    justify-items: center;
 }
 
 #label_lose {
-    margin-bottom: 25px;
     color: #ffffff;
+    font-weight: bolder;
 }
 
 /* LeaderBoard & Comment */
 
 #section_LeaderBoard {
     margin-bottom: 10%;
-    
 }
 
 #fieldset_LeaderBoard {
@@ -209,13 +267,25 @@ canvas {
     font-weight: bold;
     text-align: left;
     padding: 0% 3% 0% 3%;
-    
 }
 
-#div_LeaderBoard {
-    display: flex;
+#div_header_LeaderBoard {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-content: center;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
+    justify-items: center;
+
+    color: black;
+    background-color: white;
+
+    font-size: 150%;
+    font-weight: bolder;
+}
+
+#header_LeaderBoard {
+    
 }
 
 /* Comment */
@@ -283,7 +353,7 @@ a:hover{
     color: rgb(255, 255, 255);
 }
 
-/* Login */
+/* Login.html */
 #fieldset_Login {
     display: block;
     margin: 3% 35% 3% 35%;
@@ -313,7 +383,7 @@ a:hover{
     text-align: left;
 }
 
-/* Register */
+/* Register.html */
 #fieldset_Register {
     display: block;
     margin: 3% 35% 3% 35%;

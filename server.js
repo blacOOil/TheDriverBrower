@@ -55,7 +55,7 @@ const queryDB = (sql) => {
 app.post("/updateboard", async (req, res) => {
   console.log(req.body.tablename);
   let createTableSQL =
-    'CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255), Score INT(255))';
+    'CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255), Score INT(255),User_Like INT(255))';
   await queryDB(createTableSQL);
 
   const { username, score } = req.body;
@@ -75,7 +75,7 @@ app.post("/updateboard", async (req, res) => {
       );
     } else {
       if (username && score !== null && score !== undefined) {
-        let insertSQL = `INSERT INTO BoardInfo (username, score ) VALUES (?, ?)`;
+        let insertSQL = `INSERT INTO BoardInfo (username, score,User_Like ) VALUES (?, ?,0)`;
         con.query(insertSQL, [username, score], (insertErr, insertResult) => {
           if (insertErr) throw insertErr;
 
@@ -92,9 +92,9 @@ app.post("/updateboard", async (req, res) => {
 app.get('/leaderBoarding', async (req, res) => {
     console.log("pleaseee");
   try {
-    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255), Score INT(255))";
+    let sql = "CREATE TABLE IF NOT EXISTS BoardInfo (username VARCHAR(255), Score INT(255),User_Like INT(255))";
     let result = await queryDB(sql);
-    sql = `SELECT username, Score FROM BoardInfo ORDER BY Score DESC`;
+    sql = `SELECT username, Score,User_Like FROM BoardInfo ORDER BY Score DESC`;
     result = await queryDB(sql);
     console.log("leaderBoardShowing");
     console.log(result);

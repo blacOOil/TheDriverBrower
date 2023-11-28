@@ -268,7 +268,12 @@ async function showLeaderboard(score) {
  
        let likeButton = document.createElement("button");
        likeButton.className = "block_like";
-       likeButton.textContent = "Like" + "1";
+
+        if (entry.User_Like !== undefined) {
+            likeButton.textContent = `Like: ${entry.User_Like}`;
+        } else {
+            likeButton.textContent = "Like: 0"; 
+        }
        likeButton.addEventListener("click", () => {
  
        });

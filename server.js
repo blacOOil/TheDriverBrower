@@ -106,12 +106,11 @@ app.get('/leaderBoarding', async (req, res) => {
   }
 });
 //<====like section===>
-app.post("/likeToUser",async(req,res) => {
-  let sql = "CREATE TABLE IF NOT EXISTS UserLike (username VARCHAR(255),Like INT(255))";
+app.post("/likeToUser", async (req, res) => {
+  let sql = `UPDATE BoardInfo SET User_Like = IFNULL(User_Like, 0) + 1 WHERE username = "${req.body.username}"`;
   let result = await queryDB(sql);
-  sql = `INSERT INTO userInfo (username,  Like) VALUES ("${req.body.username}","${req.body.Like}")`;
-  result = await queryDB(sql);
-})
+  res.status(200).send("Like added successfully");
+});
 
 //<====checklogin session===>
 app.post('/checkLogin', async (req, res) => {

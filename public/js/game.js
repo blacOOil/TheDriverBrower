@@ -7,6 +7,7 @@ function pageLoad() {
   checker();
   
   document.getElementById("button_post").onclick = getData;
+ // document.getElementById("block_like").onclick = getData;
 }
 
 function checkCookie(){
@@ -274,9 +275,9 @@ async function showLeaderboard(score) {
         } else {
             likeButton.textContent = "Like: 0"; 
         }
-       likeButton.addEventListener("click", () => {
- 
-       });
+        likeButton.addEventListener("click", async () => {
+          await UseLikeButton(entry.username);
+      });
  
        leaderboard_username.appendChild(username);
        leaderboard_score.appendChild(score);
@@ -284,7 +285,23 @@ async function showLeaderboard(score) {
    }
  }
  //<=====like system====>
- 
+      async function UseLikeButton(username){
+        Addlike(username);
+        window.location.reload();
+      }
+
+      async function Addlike (username){
+        let response = await fetch("/likeToUser",{
+          method:"POST",
+          headers:{
+            Accept: "application/json",
+            "Content-Type":"application/json",
+          },
+          body:JSON.stringify({
+            username :username,
+          }),
+        });
+      }
 
  //<=====comment section====>
 
